@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="newPersistenceUnit">
+        <class>com.epul.cinema_spring_boot.domains.ActeurEntity</class>
+        <class>com.epul.cinema_spring_boot.domains.CategorieEntity</class>
+        <class>com.epul.cinema_spring_boot.domains.FilmEntity</class>
+        <class>com.epul.cinema_spring_boot.domains.PersonnageEntity</class>
+        <class>com.epul.cinema_spring_boot.domains.RealisateurEntity</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cinema"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>
