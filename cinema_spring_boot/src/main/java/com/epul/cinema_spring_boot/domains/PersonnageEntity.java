@@ -14,7 +14,7 @@ public class PersonnageEntity {
     private ActeurEntity acteurByNoAct;
 
     @Id
-    @Column(name = "NoFilm", nullable = false)
+    @Column(name = "NoFilm", insertable=false, updatable=false, nullable = false)
     public Integer getNoFilm() {
         return noFilm;
     }
@@ -24,7 +24,7 @@ public class PersonnageEntity {
     }
 
     @Id
-    @Column(name = "NoAct", nullable = false)
+    @Column(name = "NoAct",insertable=false, updatable=false, nullable = false)
     public Integer getNoAct() {
         return noAct;
     }

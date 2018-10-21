@@ -81,7 +81,7 @@ public class FilmEntity {
     }
 
     @Basic
-    @Column(name = "NoRea", nullable = false)
+    @Column(name = "NoRea",insertable=false, updatable=false, nullable = false)
     public Integer getNoRea() {
         return noRea;
     }
@@ -91,7 +91,7 @@ public class FilmEntity {
     }
 
     @Basic
-    @Column(name = "CodeCat", nullable = false, length = 2)
+    @Column(name = "CodeCat", insertable=false, updatable=false, nullable = false, length = 2)
     public String getCodeCat() {
         return codeCat;
     }

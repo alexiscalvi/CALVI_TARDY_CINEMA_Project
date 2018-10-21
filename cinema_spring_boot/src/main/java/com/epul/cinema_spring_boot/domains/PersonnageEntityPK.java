@@ -9,7 +9,7 @@ public class PersonnageEntityPK implements Serializable {
     private Integer noFilm;
     private Integer noAct;
 
-    @Column(name = "NoFilm", nullable = false)
+    @Column(name = "NoFilm", insertable=false, updatable=false, nullable = false)
     @Id
     public Integer getNoFilm() {
         return noFilm;
@@ -19,7 +19,7 @@ public class PersonnageEntityPK implements Serializable {
         this.noFilm = noFilm;
     }
 
-    @Column(name = "NoAct", nullable = false)
+    @Column(name = "NoAct", insertable=false, updatable=false, nullable = false)
     @Id
     public Integer getNoAct() {
         return noAct;
