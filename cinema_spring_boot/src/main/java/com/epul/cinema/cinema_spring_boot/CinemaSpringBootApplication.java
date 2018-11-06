@@ -1,4 +1,4 @@
-package com.epul.cinema_spring_boot;
+package com.epul.cinema.cinema_spring_boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CinemaSpringBootApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(CinemaSpringBootApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(CinemaSpringBootApplication.class, args);
+	}
 }

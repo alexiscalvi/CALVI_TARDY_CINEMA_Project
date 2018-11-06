@@ -1,7 +1,7 @@
-package com.epul.cinema_spring_boot.controller;
+package com.epul.cinema.cinema_spring_boot.controller;
 
-import com.epul.cinema_spring_boot.domains.FilmEntity;
-import com.epul.cinema_spring_boot.repositories.EntityFilmRepository;
+import com.epul.cinema.cinema_spring_boot.domains.ActorEntity;
+import com.epul.cinema.cinema_spring_boot.repositories.ActorEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,22 +13,23 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/Films")
-public class filmController {
-    @Autowired
-    private EntityFilmRepository entityFilmRepository;
+@RequestMapping("/Actor")
+public class ActorController {
 
-    @GetMapping("/getFilms")
-    public List<FilmEntity> findAllFilms() {
+    @Autowired
+    private ActorEntityRepository actorEntityRepository;
+
+    @GetMapping("/getActors")
+    public List<ActorEntity> findAllActors(){
         String destinationPage = "";
-        List<FilmEntity> mesClients = null;
+        List<ActorEntity> mesActors = null;
         try {
-            mesClients = entityFilmRepository.findAll();
+            mesActors = actorEntityRepository.findAll();
         } catch (Exception e) {
 
             ResponseEntity.notFound().build();
         }
-        return mesClients;
-
+        return mesActors;
     }
+
 }

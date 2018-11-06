@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="newPersistenceUnit">
-        <class>com.epul.cinema_spring_boot.domains.ActeurEntity</class>
-        <class>com.epul.cinema_spring_boot.domains.CategorieEntity</class>
-        <class>com.epul.cinema_spring_boot.domains.FilmEntity</class>
-        <class>com.epul.cinema_spring_boot.domains.PersonnageEntity</class>
-        <class>com.epul.cinema_spring_boot.domains.RealisateurEntity</class>
+    <persistence-unit name="NewPersistenceUnit">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.epul.cinema.cinema_spring_boot.domains.ActorEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.AddressEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.CategoryEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.CityEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.CountryEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.FilmEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.FilmActorEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.FilmCategoryEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.FilmTextEntity</class>
+        <class>com.epul.cinema.cinema_spring_boot.domains.LanguageEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/cinema"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hbm2ddl.auto" value="update"/>
         </properties>
     </persistence-unit>
 </persistence>

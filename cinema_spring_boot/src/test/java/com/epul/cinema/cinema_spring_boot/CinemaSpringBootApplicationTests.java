@@ -1,4 +1,4 @@
-package com.epul.cinema_spring_boot;
+package com.epul.cinema.cinema_spring_boot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,8 +9,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class CinemaSpringBootApplicationTests {
 
-    @Test
-    public void contextLoads() {
-    }
+	@Test
+	public void contextLoads() {
+	}
 
 }
