@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Actor} from '../models/actor';
 import {ActorService} from '../services/actor.service';
 
@@ -9,18 +9,19 @@ import {ActorService} from '../services/actor.service';
 })
 export class ActorsComponent implements OnInit {
 
-  actors: Actor[];
-  actors_all: Actor[];
-  dataSearch = '';
+  // @Input()
+  // actors: Actor[];
+
+  private actors: Actor[];
 
   constructor(private actorServ: ActorService) {
   }
 
   ngOnInit() {
-    this.actorServ.getActors();
-    // this.actorServ.getActors().subscribe( value => {
-    //   this.actors_all = value;
-    // });
+    // this.actorServ.getActors();
+    this.actorServ.getActors().subscribe( value => {
+      this.actors = value;
+    });
   }
 }
 

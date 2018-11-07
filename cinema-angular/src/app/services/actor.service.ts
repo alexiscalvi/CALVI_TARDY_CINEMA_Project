@@ -25,15 +25,15 @@ export class ActorService {
     };
   }
 
-  getActors(): void {
-  // getActors(): Observable<Actor[]> {
+  // getActors(): void {
+  getActors(): Observable<Actor[]> {
     const url = environment.api + 'Actor/getActors';
-    // return this.http.get(url).pipe(map(actors => actors as Actor[]));
     this.http.get(url, this.options)
       .pipe(
         map(res => res) // or any other operator
       )
       .subscribe(res => console.log(res));
+    return this.http.get(url).pipe(map(actors => actors as Actor[]));
   }
 
   getActor(id: number): Observable<Actor> {

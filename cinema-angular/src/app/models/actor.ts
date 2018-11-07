@@ -1,5 +1,5 @@
 export class Actor {
-  constructor(public id?, public first_name?: string, public last_name?: string) {
+  constructor(public actorId?, public firstName?: string, public lastName?: string, public lastUpdate?: string) {
 
   }
 }
