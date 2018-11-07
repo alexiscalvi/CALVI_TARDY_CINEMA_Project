@@ -23,6 +23,10 @@ export class ActorsComponent implements OnInit {
       this.actors = value;
     });
   }
+
+  // On appelle le service pour enregistrer le visiteur
+
+
 }
 
 

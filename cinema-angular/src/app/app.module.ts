@@ -11,6 +11,7 @@ import { FilmsComponent } from './films/films.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ActorFormComponent } from './actor-form/actor-form.component';
 import { FilmCardComponent } from './film-card/film-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FilmCardComponent } from './film-card/film-card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

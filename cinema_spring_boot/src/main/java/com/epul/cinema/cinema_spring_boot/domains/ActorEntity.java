@@ -13,6 +13,7 @@ public class ActorEntity {
     private Timestamp lastUpdate;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "actor_id", nullable = false)
     public Short getActorId() {
         return actorId;
