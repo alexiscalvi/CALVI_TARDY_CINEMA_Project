@@ -17,10 +17,10 @@ export class ActorsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.actorServ.getActors().subscribe( value => {
-      this.actors_all = value;
-      this.actors = value;
-    });
+    this.actorServ.getActors();
+    // this.actorServ.getActors().subscribe( value => {
+    //   this.actors_all = value;
+    // });
   }
 }
 
