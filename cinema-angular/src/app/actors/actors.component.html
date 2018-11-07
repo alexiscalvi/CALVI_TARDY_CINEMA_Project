@@ -1,5 +1,7 @@
-<ul class="actor-list">
-  <li *ngFor="let actor of actors">
+<h3>Liste des acteurs</h3>
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let actor of actors">
     <app-actor [actor]="actor"></app-actor>
   </li>
 </ul>

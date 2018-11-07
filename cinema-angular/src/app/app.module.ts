@@ -8,6 +8,7 @@ import { FilmComponent } from './film/film.component';
 import { ActorsComponent } from './actors/actors.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FilmsComponent } from './films/films.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilmsComponent } from './films/films.component';
     ActorComponent,
     FilmComponent,
     ActorsComponent,
-    FilmsComponent
+    FilmsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
