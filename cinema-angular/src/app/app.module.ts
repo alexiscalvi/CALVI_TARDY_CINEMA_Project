@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilmsComponent } from './films/films.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ActorFormComponent } from './actor-form/actor-form.component';
+import { FilmCardComponent } from './film-card/film-card.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ActorFormComponent } from './actor-form/actor-form.component';
     ActorsComponent,
     FilmsComponent,
     NavbarComponent,
-    ActorFormComponent
+    ActorFormComponent,
+    FilmCardComponent
   ],
   imports: [
     BrowserModule,

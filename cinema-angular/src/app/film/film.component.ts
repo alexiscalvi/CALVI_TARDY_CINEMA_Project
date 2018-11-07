@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Film} from '../models/film';
 
 @Component({
   selector: 'app-film',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./film.component.css']
 })
 export class FilmComponent implements OnInit {
+
+
+  private films: Film[];
 
   constructor() { }
 

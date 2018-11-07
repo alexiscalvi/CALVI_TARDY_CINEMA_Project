@@ -41,10 +41,10 @@ export class ActorService {
     return this.http.get<Actor>(url).pipe(map(actor => actor as Actor));
   }
 
-  getActorFilms(id: number): Observable<Film[]> {
-    const url = environment.api + 'films?acteur=' + id;
-    return this.http.get<Film>(url).pipe(map(films => films as Film[]));
-  }
+  // getActorFilms(id: number): Observable<Film[]> {
+  //   const url = environment.api + 'films?acteur=' + id;
+  //   return this.http.get<Film>(url).pipe(map(films => films as Film[]));
+  // }
 
   delete(id: number) {
     const url = environment.api + 'acteur/' + id;
