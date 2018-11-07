@@ -25,7 +25,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/styles/bootstrap-4.1.3-dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -81,7 +83,9 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/styles/bootstrap-4.1.3-dist/js/bootstrap.min.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
