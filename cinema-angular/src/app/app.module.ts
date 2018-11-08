@@ -12,6 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ActorFormComponent } from './actor-form/actor-form.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 import { FormsModule } from '@angular/forms';
+import { FilterFilmPipe } from './pipes/filter-film.pipe';
+import { FilterActorPipe } from './pipes/filter-actor.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     FilmsComponent,
     NavbarComponent,
     ActorFormComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    FilterFilmPipe,
+    FilterActorPipe
   ],
   imports: [
     BrowserModule,

@@ -10,10 +10,12 @@ import {Film} from '../models/film';
 export class FilmsComponent implements OnInit {
 
   private films: Film[];
+  private filmSearched: string;
 
   constructor(private filmService: FilmService) { }
 
   ngOnInit() {
+    this.filmSearched = '';
     this.filmService.getFilms().subscribe( value => {
       this.films = value;
     });

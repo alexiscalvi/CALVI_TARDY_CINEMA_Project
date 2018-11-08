@@ -1,18 +1,18 @@
 export class Film {
   constructor(
     public film_id?,
-    public title?: string,
-    public description?: string,
-    public release_year?: string,
-    public language_id?: string,
-    public original_language_id?: string,
-    public rental_duration?: string,
-    public rental_rate?: string,
-    public length?: string,
-    public replacement_cost?: string,
-    public rating?: string,
-    public special_features?: string,
-    public last_update?: string
+    public title?: String,
+    public description?: String,
+    public release_year?: String,
+    public language_id?: String,
+    public original_language_id?: String,
+    public rental_duration?: String,
+    public rental_rate?: String,
+    public length?: String,
+    public replacement_cost?: String,
+    public rating?: String,
+    public special_features?: String,
+    public last_update?: String
   ) {
   }
 }
