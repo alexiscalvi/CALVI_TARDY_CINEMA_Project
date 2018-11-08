@@ -23,7 +23,7 @@ export class FilmService {
     return this.http.get(url).pipe(map(films => films as Film[]));
   }
 
-  getFilm(id: number): Observable<Film> {
+  getFilm(id: number): Film {
 
     const url = environment.api + 'Film/getFilm?id=' + id;
     // this.http.get(url)
@@ -31,6 +31,8 @@ export class FilmService {
     //     map(res => res) // or any other operator
     //   )
     //   .subscribe(res => console.log(res));
-    return this.http.get(url).pipe(map(film => film as Film));
+    let film: Film;
+    this.http.get(url).subscribe(id2 => film = <Film>id2);
+    return film;
   }
 }
