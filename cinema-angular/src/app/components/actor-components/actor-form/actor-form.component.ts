@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Actor} from '../models/actor';
-import {ActorService} from '../services/actor.service';
+import {Actor} from '../../../models/actor';
+import {ActorService} from '../../../services/actor.service';
 
 @Component({
   selector: 'app-actor-form',

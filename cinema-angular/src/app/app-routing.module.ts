@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ActorsComponent } from './actors/actors.component';
-import { ActorFormComponent } from './actor-form/actor-form.component';
-import {FilmsComponent} from './films/films.component';
-import {FilmComponent} from './film/film.component';
+import { ActorsComponent } from './components/actor-components/actors/actors.component';
+import { ActorFormComponent } from './components/actor-components/actor-form/actor-form.component';
+import {FilmsComponent} from './components/film-components/films/films.component';
+import {FilmComponent} from './components/film-components/film/film.component';
 
 const routes: Routes = [
   {path: 'actors', component: ActorsComponent},

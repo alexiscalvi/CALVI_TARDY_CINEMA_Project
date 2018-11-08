@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Film} from '../models/film';
+import {Film} from '../../../models/film';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
-import {FilmService} from '../services/film.service';
+import {FilmService} from '../../../services/film.service';
 
 @Component({
   selector: 'app-film',
