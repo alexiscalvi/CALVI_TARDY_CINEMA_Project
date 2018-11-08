@@ -3,7 +3,6 @@ import {FilmService} from '../../../services/film.service';
 import {Film} from '../../../models/film';
 import {Category} from '../../../models/category';
 import {CategoryService} from '../../../services/category.service';
-import {DropdownItem} from '../../../models/dropdown-item';
 import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
