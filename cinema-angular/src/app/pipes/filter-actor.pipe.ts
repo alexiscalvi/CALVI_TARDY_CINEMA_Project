@@ -9,8 +9,8 @@ export class FilterActorPipe implements PipeTransform {
   transform(actorList: Actor[], currentValue: String): any {
     if (currentValue) {
       return actorList.filter(function (actor: Actor) {
-        return actor.firstName.trimLeft().toLowerCase().trimLeft().includes(currentValue.trimLeft().toLowerCase()) ||
-        actor.lastName.trimLeft().toLowerCase().trimLeft().includes(currentValue.trimLeft().toLowerCase());
+        return actor.firstName.toLowerCase().includes(currentValue.toLowerCase()) ||
+        actor.lastName.toLowerCase().includes(currentValue.toLowerCase());
       });
     }
     return actorList;
