@@ -1,7 +1,7 @@
 export class Category {
   constructor(
-    public categoryId,
+    public category_id,
     public name: String,
-    public lastUpdate
-  ){}
+    public last_update
+  ) {}
 }
