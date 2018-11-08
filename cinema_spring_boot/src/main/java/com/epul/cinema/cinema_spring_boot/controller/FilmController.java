@@ -4,12 +4,10 @@ import com.epul.cinema.cinema_spring_boot.domains.FilmEntity;
 import com.epul.cinema.cinema_spring_boot.repositories.FilmEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -30,6 +28,20 @@ public class FilmController {
             ResponseEntity.notFound().build();
         }
         return mesFilms;
+    }
+
+    @GetMapping("/getFilm/{id}")
+    public FilmEntity getFilmById(@PathVariable(value = "id") int filmId){
+        System.out.println("ici" + filmId);
+        String destinationPage = "";
+        FilmEntity film = null;
+        try {
+            film = (FilmEntity) filmEntityRepository.findFilmById((short) filmId);
+        } catch (Exception e) {
+            System.out.println("ERROR:" + e.getMessage());
+            ResponseEntity.notFound().build();
+        }
+        return film;
     }
 
 }
