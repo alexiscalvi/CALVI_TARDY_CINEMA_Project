@@ -1,6 +1,6 @@
 export class Film {
   constructor(
-    public film_id?,
+    public filmId?,
     public title?: String,
     public description?: String,
     public release_year?: String,

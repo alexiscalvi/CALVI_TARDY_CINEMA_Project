@@ -15,11 +15,22 @@ export class FilmService {
 
   getFilms(): Observable<Film[]> {
     const url = environment.api + 'Film/getFilms';
-    this.http.get(url)
-      .pipe(
-        map(res => res) // or any other operator
-      )
-      .subscribe(res => console.log(res));
+    // this.http.get(url)
+    //   .pipe(
+    //     map(res => res) // or any other operator
+    //   )
+    //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(films => films as Film[]));
+  }
+
+  getFilm(id: number): Observable<Film> {
+
+    const url = environment.api + 'Film/getFilm?id=' + id;
+    // this.http.get(url)
+    //   .pipe(
+    //     map(res => res) // or any other operator
+    //   )
+    //   .subscribe(res => console.log(res));
+    return this.http.get(url).pipe(map(film => film as Film));
   }
 }

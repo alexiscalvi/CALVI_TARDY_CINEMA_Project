@@ -26,9 +26,6 @@ export class ActorFormComponent implements OnInit {
 
   valider(): void {
 
-    // this.actor.firstName = this.firstName;
-    console.log('on valide');
-    console.log(this.actor);
     this.actorService.adActor(this.actor). subscribe(
       () => {
 
