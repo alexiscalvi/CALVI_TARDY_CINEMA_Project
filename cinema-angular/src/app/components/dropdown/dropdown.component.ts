@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {DropdownItem} from '../../models/dropdown-item';
 import {Category} from '../../models/category';
 
 @Component({
