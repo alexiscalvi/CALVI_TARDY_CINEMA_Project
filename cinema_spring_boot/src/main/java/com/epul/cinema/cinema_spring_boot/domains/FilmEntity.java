@@ -12,13 +12,13 @@ public class FilmEntity {
     private Short filmId;
     private String title;
     private String description;
-    private Serializable releaseYear;
+    private int releaseYear;
     private Byte rentalDuration;
     private BigDecimal rentalRate;
     private Short length;
     private BigDecimal replacementCost;
-    private Serializable rating;
-    private Serializable specialFeatures;
+    private String rating;
+    private String specialFeatures;
     private Timestamp lastUpdate;
 
     @Id
@@ -53,11 +53,11 @@ public class FilmEntity {
 
     @Basic
     @Column(name = "release_year", nullable = true)
-    public Serializable getReleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Serializable releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -103,21 +103,21 @@ public class FilmEntity {
 
     @Basic
     @Column(name = "rating", nullable = true)
-    public Serializable getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(Serializable rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
     @Basic
     @Column(name = "special_features", nullable = true)
-    public Serializable getSpecialFeatures() {
+    public String getSpecialFeatures() {
         return specialFeatures;
     }
 
-    public void setSpecialFeatures(Serializable specialFeatures) {
+    public void setSpecialFeatures(String specialFeatures) {
         this.specialFeatures = specialFeatures;
     }
 

@@ -1,9 +1,14 @@
 <div class="card">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
+  <div class="card-header">
     <h5 class="card-title">{{ film.title }}</h5>
+  </div>
+  <div class="card-body">
+
     <p class="card-text">{{ film.description }}</p>
     <p class="card-text"><small class="text-muted">{{film.release_year}}</small></p>
-    <p class="card-text"><small class="text-muted">{{film.rating}}</small></p>
+    <p class="card-text"></p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">{{film.length}} min</small>
   </div>
 </div>
