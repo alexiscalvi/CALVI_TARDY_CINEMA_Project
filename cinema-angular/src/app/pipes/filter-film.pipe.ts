@@ -9,7 +9,8 @@ export class FilterFilmPipe implements PipeTransform {
   transform(filmList: Film[], currentValue: String): any {
     if (currentValue) {
       return filmList.filter(function (film: Film) {
-        return film.title.trimLeft().toLowerCase().trimLeft().includes(currentValue.trimLeft().toLowerCase());
+        return film.title.trimLeft().toLowerCase().trimLeft().includes(currentValue.trimLeft().toLowerCase()) ||
+        film.description.trimLeft().toLowerCase().trimLeft().includes(currentValue.trimLeft().toLowerCase());
       });
     }
     return filmList;

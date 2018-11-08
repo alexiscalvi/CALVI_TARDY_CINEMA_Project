@@ -1,7 +1,8 @@
 <h3>Liste des acteurs</h3>
 
+<input type="text" class="form-control" [(ngModel)]="actorSearched" placeholder="Recherche...">
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let actor of actors">
+  <li class="list-group-item" *ngFor="let actor of actors|filterActor:actorSearched">
     <app-actor [actor]="actor"></app-actor>
   </li>
 </ul>

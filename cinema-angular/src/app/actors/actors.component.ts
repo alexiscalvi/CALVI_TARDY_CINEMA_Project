@@ -9,16 +9,14 @@ import {ActorService} from '../services/actor.service';
 })
 export class ActorsComponent implements OnInit {
 
-  // @Input()
-  // actors: Actor[];
-
   private actors: Actor[];
+  private actorSearched: String;
 
   constructor(private actorServ: ActorService) {
   }
 
   ngOnInit() {
-    // this.actorServ.getActors();
+    this.actorSearched = '';
     this.actorServ.getActors().subscribe( value => {
       this.actors = value;
     });
