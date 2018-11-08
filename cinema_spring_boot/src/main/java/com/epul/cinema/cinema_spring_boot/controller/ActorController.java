@@ -41,9 +41,9 @@ public class ActorController {
             System.out.println(actorEntity.getLastName());
             System.out.println(actorEntity.getLastUpdate());
             actorEntity.setLastUpdate(new Timestamp(System.currentTimeMillis()));
-            actorEntityRepository.saveAndFlush(actorEntity);
+            actorEntityRepository.flush();
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
             ResponseEntity.notFound().build();
         }
     }
