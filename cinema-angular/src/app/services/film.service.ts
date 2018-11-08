@@ -25,14 +25,18 @@ export class FilmService {
 
   getFilm(id: number): Film {
 
-    const url = environment.api + 'Film/getFilm?id=' + id;
+    const url = environment.api + 'Film/getFilm/' + id;
     // this.http.get(url)
     //   .pipe(
     //     map(res => res) // or any other operator
     //   )
     //   .subscribe(res => console.log(res));
     let film: Film;
-    this.http.get(url).subscribe(id2 => film = <Film>id2);
+    this.http.get(url).subscribe(id2 => {
+      film = id2 as Film;
+      console.log(id2 as Film);
+    });
+    console.log(film);
     return film;
   }
 }

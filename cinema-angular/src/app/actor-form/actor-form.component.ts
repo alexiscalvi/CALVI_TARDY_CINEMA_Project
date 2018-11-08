@@ -18,10 +18,7 @@ export class ActorFormComponent implements OnInit {
   constructor(private actorService: ActorService) { }
 
   ngOnInit() {
-    this.actor = new Actor();
-    this.actor.firstName = '';
-    this.actor.lastName = '';
-    this.actor.lastUpdate = '';
+    this.actor = new Actor('', '', '');
   }
 
   valider(): void {

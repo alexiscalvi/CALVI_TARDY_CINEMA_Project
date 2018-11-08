@@ -51,12 +51,12 @@ export class ActorService {
     return this.http.delete(url);
   }
 
-  postActor(actor: Actor): Observable<Actor> {
-    const url = environment.api + 'acteur';
-    return this.http.post(url, actor);
-  }
+  // postActor(actor: Actor): Observable<Actor> {
+  //   const url = environment.api + 'acteur';
+  //   return this.http.post(url, actor);
+  // }
 
-  adActor(actor: Actor): Observable<Actor> {
+  adActor(actor: Actor): Observable<Object> {
     const url = environment.api + '/Actor/addActor';
     return this.http.post(url, actor);
   }
