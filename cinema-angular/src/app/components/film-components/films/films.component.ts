@@ -4,6 +4,7 @@ import {Film} from '../../../models/film';
 import {Category} from '../../../models/category';
 import {CategoryService} from '../../../services/category.service';
 import {forEach} from '@angular/router/src/utils/collection';
+import {ComplexFilm} from '../../../models/complex-film';
 
 @Component({
   selector: 'app-films',
@@ -13,6 +14,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 export class FilmsComponent implements OnInit {
 
   private films: Film[];
+  private complexFilms: ComplexFilm[];
   private filmSearched: string;
   private categories: Category[];
 
@@ -22,6 +24,9 @@ export class FilmsComponent implements OnInit {
     this.filmSearched = '';
     this.filmService.getFilms().subscribe( value => {
       this.films = value;
+    });
+    this.filmService.getComplexFilms().subscribe( value => {
+      this.complexFilms = value;
     });
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;

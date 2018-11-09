@@ -5,6 +5,7 @@ import {map} from 'rxjs/internal/operators';
 import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {Film} from '../models/film';
+import {ComplexFilm} from '../models/complex-film';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,16 @@ export class FilmService {
     //   )
     //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(films => films as Film[]));
+  }
+
+  getComplexFilms(): Observable<ComplexFilm[]> {
+    const url = environment.api + 'Film/getComplexFilms';
+    this.http.get(url)
+      .pipe(
+        map(res => res) // or any other operator
+      )
+      .subscribe(res => console.log(res));
+    return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
   }
 
   getFilm(id: number): Film {
