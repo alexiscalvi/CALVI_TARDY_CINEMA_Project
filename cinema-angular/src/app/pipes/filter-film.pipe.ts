@@ -7,11 +7,12 @@ import {ComplexFilm} from '../models/complex-film';
 })
 export class FilterFilmPipe implements PipeTransform {
 
-  transform(filmList: ComplexFilm[], currentValue: String): any {
+  transform(filmList: ComplexFilm[], currentValue: String, category: number): any {
     if (currentValue) {
       return filmList.filter(function (film: ComplexFilm) {
-        return film.filmEntity.title.toLowerCase().includes(currentValue.toLowerCase()) ||
-        film.filmEntity.description.toLowerCase().includes(currentValue.toLowerCase());
+        return (film.filmEntity.title.toLowerCase().includes(currentValue.toLowerCase()) ||
+        film.filmEntity.description.toLowerCase().includes(currentValue.toLowerCase())) &&
+          film.categoryEntityList;
       });
     }
     return filmList;

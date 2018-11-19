@@ -3,6 +3,7 @@
     Toutes les categories
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" *ngFor="let category of categories" href="#">{{ category.name }}</a>
+    <a class="dropdown-item" (click)="returnCategory(0)" id="0" >Toutes les catégories</a>
+    <a class="dropdown-item" (click)="returnCategory(category.categoryId)" id="{{ category.categoryId }}" *ngFor="let category of categories" >{{ category.name }}</a>
   </div>
 </div>

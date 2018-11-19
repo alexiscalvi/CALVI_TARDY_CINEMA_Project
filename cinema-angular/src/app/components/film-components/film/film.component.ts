@@ -22,7 +22,7 @@ export class FilmComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((id2) => this.id = +id2.get('id'));
-    console.log(this.id);
+    // console.log(this.id);
     this.film = this.filmService.getFilm(this.id);
   }
 

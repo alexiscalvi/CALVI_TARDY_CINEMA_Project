@@ -45,9 +45,20 @@ export class FilmService {
     let film: Film;
     this.http.get(url).subscribe(id2 => {
       film = id2 as Film;
-      console.log(id2 as Film);
+      // console.log(id2 as Film);
     });
-    console.log(film);
+    // console.log(film);
     return film;
   }
+
+  getComplexFilmsByCategoryId(id: number): Observable<ComplexFilm[]> {
+    const url = environment.api + 'Film/getComplexFilmsByCategory/' + id;
+    // this.http.get(url)
+    //   .pipe(
+    //     map(res => res) // or any other operator
+    //   )
+    //   .subscribe(res => console.log(res));
+    return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
+  }
+
 }
