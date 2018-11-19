@@ -3,6 +3,9 @@ import {Film} from '../../../models/film';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {FilmService} from '../../../services/film.service';
+import {Actor} from '../../../models/actor';
+import {ComplexFilm} from '../../../models/complex-film';
+import {ActorService} from '../../../services/actor.service';
 
 @Component({
   selector: 'app-film',
@@ -11,19 +14,25 @@ import {FilmService} from '../../../services/film.service';
 })
 export class FilmComponent implements OnInit {
 
-  private film: Film;
+  @Input()
   private id: number;
+
+  public filmComplex: ComplexFilm;
+
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private  filmService: FilmService) {
+              private  filmService: FilmService,
+              private actorServ: ActorService) {
     this.id = 0;
   }
 
   ngOnInit() {
     this.route.paramMap.subscribe((id2) => this.id = +id2.get('id'));
-    // console.log(this.id);
-    this.film = this.filmService.getFilm(this.id);
+    this.filmService.getComplexFilm(this.id).subscribe( (value) => {
+      this.filmComplex = value;
+      console.log(this.filmComplex);
+    });
   }
 
 }

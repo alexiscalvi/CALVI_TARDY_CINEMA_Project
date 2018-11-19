@@ -3,16 +3,16 @@ export class Film {
     public filmId?,
     public title?: String,
     public description?: String,
-    public release_year?: String,
-    public language_id?: String,
-    public original_language_id?: String,
-    public rental_duration?: String,
-    public rental_rate?: String,
+    public releaseYear?: String,
+    public languageId?: String,
+    public originalLanguageId?: String,
+    public rentalDuration?: String,
+    public rentalRate?: String,
     public length?: String,
-    public replacement_cost?: String,
+    public replacementCost?: String,
     public rating?: String,
-    public special_features?: String,
-    public last_update?: String
+    public specialFeatures?: String,
+    public lastUpdate?: String
   ) {
   }
 }

@@ -12,10 +12,14 @@ import {ComplexFilm} from '../models/complex-film';
 })
 export class FilmService {
 
-  constructor(public http: HttpClient) { }
+  private type: String;
+
+  constructor(public http: HttpClient) {
+    this.type = 'Film/';
+  }
 
   getFilms(): Observable<Film[]> {
-    const url = environment.api + 'Film/getFilms';
+    const url = environment.api + this. type + 'getFilms';
     // this.http.get(url)
     //   .pipe(
     //     map(res => res) // or any other operator
@@ -25,7 +29,7 @@ export class FilmService {
   }
 
   getComplexFilms(): Observable<ComplexFilm[]> {
-    const url = environment.api + 'Film/getComplexFilms';
+    const url = environment.api + this. type + 'getComplexFilms';
     // this.http.get(url)
     //   .pipe(
     //     map(res => res) // or any other operator
@@ -34,31 +38,42 @@ export class FilmService {
     return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
   }
 
-  getFilm(id: number): Film {
-
-    const url = environment.api + 'Film/getFilm/' + id;
-    // this.http.get(url)
-    //   .pipe(
-    //     map(res => res) // or any other operator
-    //   )
-    //   .subscribe(res => console.log(res));
-    let film: Film;
-    this.http.get(url).subscribe(id2 => {
-      film = id2 as Film;
-      // console.log(id2 as Film);
-    });
-    // console.log(film);
-    return film;
-  }
+  // getFilm(id: number): Film {
+  //
+  //   const url = environment.api + this. type + 'getFilm/' + id;
+  //   // this.http.get(url)
+  //   //   .pipe(
+  //   //     map(res => res) // or any other operator
+  //   //   )
+  //   //   .subscribe(res => console.log(res));
+  //   let film: Film;
+  //   this.http.get(url).subscribe(id2 => {
+  //     film = id2 as Film;
+  //     // console.log(id2 as Film);
+  //   });
+  //   // console.log(film);
+  //   return film;
+  // }
 
   getComplexFilmsByCategoryId(id: number): Observable<ComplexFilm[]> {
-    const url = environment.api + 'Film/getComplexFilmsByCategory/' + id;
+    const url = environment.api + this. type + 'getComplexFilmsByCategory/' + id;
     // this.http.get(url)
     //   .pipe(
     //     map(res => res) // or any other operator
     //   )
     //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
+  }
+
+  getComplexFilm(id: number): Observable<ComplexFilm> {
+    const url = environment.api + this. type + 'getComplexFilm/' + id;
+    // this.http.get(url)
+    //   .pipe(
+    //     map(res => res) // or any other operator
+    //   )
+    //   .subscribe(res => console.log(res));
+    // let film: ComplexFilm;
+    return this.http.get(url).pipe(map(film => film as ComplexFilm));
   }
 
 }

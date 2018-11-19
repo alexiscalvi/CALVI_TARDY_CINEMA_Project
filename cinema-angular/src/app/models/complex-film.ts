@@ -5,7 +5,7 @@ import {Film} from './film';
 export class ComplexFilm {
   constructor(
     public _filmEntity?: Film,
-    public _actorsEntityList?: Actor[],
+    public _actorEntityList?: Actor[],
     public _categoryEntityList?: Category[]
   ) {
   }
@@ -18,12 +18,12 @@ export class ComplexFilm {
     this._filmEntity = value;
   }
 
-  get actorsEntityList(): Actor[] {
-    return this._actorsEntityList;
+  get actorEntityList(): Actor[] {
+    return this._actorEntityList;
   }
 
-  set actorsEntityList(value: Actor[]) {
-    this._actorsEntityList = value;
+  set actorEntityList(value: Actor[]) {
+    this._actorEntityList = value;
   }
 
   get categoryEntityList(): Category[] {

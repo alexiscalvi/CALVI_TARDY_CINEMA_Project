@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterFilmPipe } from './pipes/filter-film.pipe';
 import { FilterActorPipe } from './pipes/filter-actor.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { CategoryComponent } from './components/category-components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     FilmCardComponent,
     FilterFilmPipe,
     FilterActorPipe,
-    DropdownComponent
+    DropdownComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,

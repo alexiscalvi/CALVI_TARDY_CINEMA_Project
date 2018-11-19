@@ -27,7 +27,10 @@ export class ActorFormComponent implements OnInit {
       () => {
 
       },
-      (error) => { console.log(error.messages); }
+      (error) => { console.log(error.messages); },
+      () => {
+        window.location.href = 'actors';
+      }
     );
 
   }
