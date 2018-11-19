@@ -16,4 +16,25 @@ public interface FilmEntityRepository extends JpaRepository<FilmEntity, Integer>
             " where  f.filmId= :filmId"
     )
     Object findFilmById(@Param("filmId") short filmId);
+
+    @Query("Select f, c,a" +
+            " from CategoryEntity c " +
+            "left join FilmCategoryEntity fc ON c.categoryId = fc.categoryId " +
+            "left join FilmEntity f ON fc.filmId = f.filmId" +
+            " join FilmActorEntity fa ON f.filmId = fa.filmId " +
+            " JOIN ActorEntity a ON fa.actorId = a.actorId " +
+            "group by f.filmId"
+    )
+    List<Object> findAllComplexFilms();
+
+    @Query("Select f, c,a" +
+            " from CategoryEntity c " +
+            "left join FilmCategoryEntity fc ON c.categoryId = fc.categoryId " +
+            "left join FilmEntity f ON fc.filmId = f.filmId" +
+            " join FilmActorEntity fa ON f.filmId = fa.filmId " +
+            " JOIN ActorEntity a ON fa.actorId = a.actorId " +
+            "group by f.filmId"
+
+    )
+    List<Object> findComplexFilmById(@Param("filmId") short filmId);
 }
