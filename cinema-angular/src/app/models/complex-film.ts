@@ -1,23 +1,36 @@
 import {Actor} from './actor';
 import {Category} from './category';
+import {Film} from './film';
 
 export class ComplexFilm {
   constructor(
-    public filmId?,
-    public title?: String,
-    public description?: String,
-    public release_year?: String,
-    public language_id?: String,
-    public original_language_id?: String,
-    public rental_duration?: String,
-    public rental_rate?: String,
-    public length?: String,
-    public replacement_cost?: String,
-    public rating?: String,
-    public special_features?: String,
-    public last_update?: String,
-    public actors?: Actor[],
-    public categories?: Category[]
+    public _filmEntity?: Film,
+    public _actorsEntityList?: Actor[],
+    public _categoryEntityList?: Category[]
   ) {
+  }
+
+  get filmEntity(): Film {
+    return this._filmEntity;
+  }
+
+  set filmEntity(value: Film) {
+    this._filmEntity = value;
+  }
+
+  get actorsEntityList(): Actor[] {
+    return this._actorsEntityList;
+  }
+
+  set actorsEntityList(value: Actor[]) {
+    this._actorsEntityList = value;
+  }
+
+  get categoryEntityList(): Category[] {
+    return this._categoryEntityList;
+  }
+
+  set categoryEntityList(value: Category[]) {
+    this._categoryEntityList = value;
   }
 }

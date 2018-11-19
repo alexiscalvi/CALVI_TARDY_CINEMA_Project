@@ -26,11 +26,11 @@ export class FilmService {
 
   getComplexFilms(): Observable<ComplexFilm[]> {
     const url = environment.api + 'Film/getComplexFilms';
-    this.http.get(url)
-      .pipe(
-        map(res => res) // or any other operator
-      )
-      .subscribe(res => console.log(res));
+    // this.http.get(url)
+    //   .pipe(
+    //     map(res => res) // or any other operator
+    //   )
+    //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
   }
 
