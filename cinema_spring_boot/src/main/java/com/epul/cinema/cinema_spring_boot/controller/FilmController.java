@@ -1,6 +1,8 @@
 package com.epul.cinema.cinema_spring_boot.controller;
 
+import com.epul.cinema.cinema_spring_boot.Language;
 import com.epul.cinema.cinema_spring_boot.domains.*;
+import com.epul.cinema.cinema_spring_boot.domains.LanguageEntity;
 import com.epul.cinema.cinema_spring_boot.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,6 +29,9 @@ public class FilmController {
 
     @Autowired
     private ActorEntityRepository actorEntityRepository;
+
+    @Autowired
+    private LanguageEntityRepository languageEntityRepository;
 
     public FilmController() {
     }
@@ -65,6 +70,11 @@ public class FilmController {
                         filmActorEntityList) {
                     complexFilm.addActorEntity(actorEntityRepository.getOne(fa.getActorId()));
                 }
+
+                LanguageEntity languageEntity = languageEntityRepository.getOne(f.getLanguageId());
+
+                Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
+                complexFilm.setLanguageNormal(language);
                 complexFilmList.add(complexFilm);
             }
         } catch (Exception e) {
@@ -106,6 +116,11 @@ public class FilmController {
                     filmActorEntityList) {
                 complexFilm.addActorEntity(actorEntityRepository.getOne(fa.getActorId()));
             }
+
+            LanguageEntity languageEntity = languageEntityRepository.getOne(f.getLanguageId());
+
+            Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
+            complexFilm.setLanguageNormal(language);
         } catch (Exception e) {
             System.out.println("ERROR:" + e.getMessage());
             ResponseEntity.notFound().build();
@@ -138,6 +153,11 @@ public class FilmController {
                         filmActorEntityList) {
                     complexFilm.addActorEntity(actorEntityRepository.getOne(fa.getActorId()));
                 }
+
+                LanguageEntity languageEntity = languageEntityRepository.getOne(f.getLanguageId());
+                Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
+                complexFilm.setLanguageNormal(language);
+
                 complexFilmList.add(complexFilm);
             }
         } catch (Exception e) {

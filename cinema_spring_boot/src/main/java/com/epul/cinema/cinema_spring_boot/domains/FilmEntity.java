@@ -1,7 +1,6 @@
 package com.epul.cinema.cinema_spring_boot.domains;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Objects;
@@ -13,6 +12,7 @@ public class FilmEntity {
     private String title;
     private String description;
     private int releaseYear;
+    private Byte languageId;
     private Byte rentalDuration;
     private BigDecimal rentalRate;
     private Short length;
@@ -59,6 +59,16 @@ public class FilmEntity {
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+    }
+
+    @Basic
+    @Column(name = "language_id", nullable = false)
+    public Byte getLanguageId() {
+        return languageId;
+    }
+
+    public void setLanguageId(Byte languageId) {
+        this.languageId = languageId;
     }
 
     @Basic
@@ -140,6 +150,7 @@ public class FilmEntity {
                 Objects.equals(title, that.title) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(releaseYear, that.releaseYear) &&
+                Objects.equals(languageId, that.languageId) &&
                 Objects.equals(rentalDuration, that.rentalDuration) &&
                 Objects.equals(rentalRate, that.rentalRate) &&
                 Objects.equals(length, that.length) &&
@@ -152,6 +163,6 @@ public class FilmEntity {
     @Override
     public int hashCode() {
 
-        return Objects.hash(filmId, title, description, releaseYear, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate);
+        return Objects.hash(filmId, title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating, specialFeatures, lastUpdate);
     }
 }

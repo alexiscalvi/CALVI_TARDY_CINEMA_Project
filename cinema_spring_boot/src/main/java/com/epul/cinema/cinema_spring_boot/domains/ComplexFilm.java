@@ -1,5 +1,7 @@
 package com.epul.cinema.cinema_spring_boot.domains;
 
+import com.epul.cinema.cinema_spring_boot.Language;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,8 @@ public class ComplexFilm {
     private FilmEntity filmEntity;
     private List<CategoryEntity> categoryEntityList;
     private List<ActorEntity> actorEntityList;
+    private Language languageNormal;
+
 
     public ComplexFilm() {
         this.filmEntity = new FilmEntity();
@@ -53,5 +57,11 @@ public class ComplexFilm {
         this.categoryEntityList.add(categoryEntity);
     }
 
+    public Language getLanguageNormal() {
+        return languageNormal;
+    }
 
+    public void setLanguageNormal(Language languageNormal) {
+        this.languageNormal = languageNormal;
+    }
 }

@@ -22,7 +22,7 @@ public class LanguageEntity {
     }
 
     @Basic
-    @Column(name = "name", nullable = false, length = 20)
+    @Column(name = "name", nullable = false, length = 25)
     public String getName() {
         return name;
     }
