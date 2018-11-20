@@ -1,12 +1,15 @@
 import {Actor} from './actor';
 import {Category} from './category';
 import {Film} from './film';
+import {Language} from './language';
 
 export class ComplexFilm {
   constructor(
-    public _filmEntity?: Film,
-    public _actorEntityList?: Actor[],
-    public _categoryEntityList?: Category[]
+    private _filmEntity?: Film,
+    private _actorEntityList?: Actor[],
+    private _categoryEntityList?: Category[],
+    private _languageNormal?: Language,
+    private _languageVO?: Language
   ) {
   }
 
@@ -32,5 +35,22 @@ export class ComplexFilm {
 
   set categoryEntityList(value: Category[]) {
     this._categoryEntityList = value;
+  }
+
+
+  get languageNormal(): Language {
+    return this._languageNormal;
+  }
+
+  set languageNormal(value: Language) {
+    this._languageNormal = value;
+  }
+
+  get languageVO(): Language {
+    return this._languageVO;
+  }
+
+  set languageVO(value: Language) {
+    this._languageVO = value;
   }
 }
