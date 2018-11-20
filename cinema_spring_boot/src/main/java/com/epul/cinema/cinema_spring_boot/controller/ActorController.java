@@ -33,13 +33,9 @@ public class ActorController {
     }
 
     @PostMapping("/addActor")
-    public void findAllActors(  @Valid @RequestBody ActorEntity actorEntity){
+    public void addActor(  @Valid @RequestBody ActorEntity actorEntity){
         String destinationPage = "";
         try {
-            System.out.println(actorEntity.getActorId());
-            System.out.println(actorEntity.getFirstName());
-            System.out.println(actorEntity.getLastName());
-            System.out.println(actorEntity.getLastUpdate());
             actorEntity.setLastUpdate(new Timestamp(System.currentTimeMillis()));
             actorEntityRepository.save(actorEntity);
             actorEntityRepository.flush();
