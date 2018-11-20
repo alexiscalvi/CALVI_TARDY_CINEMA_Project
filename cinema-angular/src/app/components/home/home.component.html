@@ -1,0 +1,29 @@
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" [routerLink]="['/actors']">
+        <img class="d-block w-100" src="./../assets/casting.jpg" alt="First slide">
+        <!--<div class="carousel-caption d-none d-md-block">-->
+          <!--<h1 style="color:black;font-size: 12em;">Actors</h1>-->
+        <!--</div>-->
+      </div>
+      <div class="carousel-item" [routerLink]="['/films']">
+        <img class="d-block w-100" src="./../assets/movies-tiles.jpg" alt="Second slide">
+        <!--<div  class="carousel-caption d-none d-md-block">-->
+          <!--<h1 style=" color:black; stroke-width: 0px; font-size: 20em; -webkit-text-stroke: 15px; -webkit-text-stroke-color: white;">Films</h1>-->
+        <!--</div>-->
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>

@@ -4,8 +4,10 @@ import { ActorsComponent } from './components/actor-components/actors/actors.com
 import { ActorFormComponent } from './components/actor-components/actor-form/actor-form.component';
 import {FilmsComponent} from './components/film-components/films/films.component';
 import {FilmComponent} from './components/film-components/film/film.component';
+import {HomeComponent} from './components/home/home.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'actors', component: ActorsComponent},
   {path: 'films', component: FilmsComponent},
   {path: 'addActor', component: ActorFormComponent },

@@ -16,6 +16,7 @@ import { FilterFilmPipe } from './pipes/filter-film.pipe';
 import { FilterActorPipe } from './pipes/filter-actor.pipe';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { CategoryComponent } from './components/category-components/category/category.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CategoryComponent } from './components/category-components/category/cat
     FilterFilmPipe,
     FilterActorPipe,
     DropdownComponent,
-    CategoryComponent
+    CategoryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
