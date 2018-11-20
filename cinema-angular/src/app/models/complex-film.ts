@@ -8,8 +8,7 @@ export class ComplexFilm {
     private _filmEntity?: Film,
     private _actorEntityList?: Actor[],
     private _categoryEntityList?: Category[],
-    private _languageNormal?: Language,
-    private _languageVO?: Language
+    private _languageNormal?: Language
   ) {
   }
 
@@ -46,11 +45,4 @@ export class ComplexFilm {
     this._languageNormal = value;
   }
 
-  get languageVO(): Language {
-    return this._languageVO;
-  }
-
-  set languageVO(value: Language) {
-    this._languageVO = value;
-  }
 }
