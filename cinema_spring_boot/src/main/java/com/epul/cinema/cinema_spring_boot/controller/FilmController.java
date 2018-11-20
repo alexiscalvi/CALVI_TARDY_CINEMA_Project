@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.sql.Timestamp;
 import java.util.*;
 
 @RestController
@@ -166,6 +168,45 @@ public class FilmController {
             ResponseEntity.notFound().build();
         }
         return complexFilmList;
+    }
+
+    @PostMapping("/addComplexFilm")
+    public void addComplexFilm(  @Valid @RequestBody ComplexFilm complexFilm){
+        String destinationPage = "";
+        try {
+            FilmEntity filmEntity = new FilmEntity();
+            List<CategoryEntity> categoryEntityList = new ArrayList<>();
+            List<ActorEntity> actorEntityList = new ArrayList<>();
+            FilmCategoryEntity filmCategoryEntity = new FilmCategoryEntity();
+            FilmActorEntity filmActorEntity = new FilmActorEntity();
+
+            filmEntity = complexFilm.getFilmEntity();
+            actorEntityList = complexFilm.getActorEntityList();
+            categoryEntityList = complexFilm.getCategoryEntityList();
+
+            filmActorEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
+            for (ActorEntity actor :
+                    actorEntityList) {
+                filmActorEntity.setActorId(actor.getActorId());
+                filmActorEntityRepository.save(filmActorEntity);
+            }
+
+            filmCategoryEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
+            for (CategoryEntity category :
+                    categoryEntityList) {
+                filmCategoryEntity.setCategoryId(category.getCategoryId());
+                filmActorEntityRepository.save(filmActorEntity);
+            }
+
+            filmEntityRepository.save(filmEntity);
+            filmEntityRepository.flush();
+            filmEntityRepository.flush();
+            filmActorEntityRepository.flush();
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
+            ResponseEntity.notFound().build();
+        }
     }
 
 }
