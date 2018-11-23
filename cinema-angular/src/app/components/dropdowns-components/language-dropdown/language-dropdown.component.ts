@@ -9,7 +9,7 @@ import {Language} from '../../../models/language';
 export class LanguageDropdownComponent implements OnInit {
 
   @Input()
-  languageList: Language[];
+  languages: Language[];
 
   constructor() { }
 

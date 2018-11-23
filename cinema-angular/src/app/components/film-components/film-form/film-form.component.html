@@ -16,6 +16,6 @@
     <input type="text" class="form-control" [(ngModel)]="film?.filmEntity.length" id="length" name="length" placeholder="Length">
   </div>
   <app-category-dropdown [categories]="categories" id="category"></app-category-dropdown>
-  <app-language-dropdown id="language"></app-language-dropdown>
+  <app-language-dropdown [languages]="languages" id="language"></app-language-dropdown>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
