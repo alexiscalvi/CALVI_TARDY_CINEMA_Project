@@ -1,12 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Category} from '../../models/category';
+import {Category} from '../../../models/category';
 
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.css']
+  selector: 'app-category-dropdown',
+  templateUrl: './category-dropdown.component.html',
+  styleUrls: ['./category-dropdown.component.css']
 })
-export class DropdownComponent implements OnInit {
+export class CategoryDropdownComponent implements OnInit {
 
   @Input()
   categories: Category[];

@@ -1,6 +1,6 @@
 <h3>Liste des films</h3>
 <input type="text" class="form-control" [(ngModel)]="filmSearched" placeholder="Recherche...">
-<app-dropdown [categories]="categories" (countChanged)="countChangedHandler($event)"></app-dropdown>
+<app-category-dropdown [categories]="categories" (countChanged)="countChangedHandler($event)"></app-category-dropdown>
 <!--<div class="card-group">-->
   <!--<app-film-card  *ngFor="let film of films|filterFilm:filmSearched" [film]="film" ></app-film-card>-->
 <!--</div>-->

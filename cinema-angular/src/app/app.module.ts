@@ -14,9 +14,11 @@ import { FilmCardComponent } from './components/film-components/film-card/film-c
 import { FormsModule } from '@angular/forms';
 import { FilterFilmPipe } from './pipes/filter-film.pipe';
 import { FilterActorPipe } from './pipes/filter-actor.pipe';
-import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { CategoryDropdownComponent } from './components/dropdowns-components/category-dropdown/category-dropdown.component';
 import { CategoryComponent } from './components/category-components/category/category.component';
 import { HomeComponent } from './components/home/home.component';
+import { FilmFormComponent } from './components/film-components/film-form/film-form.component';
+import { LanguageDropdownComponent } from './components/dropdowns-components/language-dropdown/language-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +32,11 @@ import { HomeComponent } from './components/home/home.component';
     FilmCardComponent,
     FilterFilmPipe,
     FilterActorPipe,
-    DropdownComponent,
+    CategoryDropdownComponent,
     CategoryComponent,
-    HomeComponent
+    HomeComponent,
+    FilmFormComponent,
+    LanguageDropdownComponent
   ],
   imports: [
     BrowserModule,

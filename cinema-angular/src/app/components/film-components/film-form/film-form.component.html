@@ -1,0 +1,21 @@
+<form (ngSubmit)="valider()">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" [(ngModel)]="film?.filmEntity.title" id="title" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" [(ngModel)]="film?.filmEntity.description" id="description" name="description" placeholder="Description">
+  </div>
+  <div class="form-group">
+    <label for="releaseYear">Release year</label>
+    <input type="text" class="form-control" [(ngModel)]="film?.filmEntity.releaseYear" id="releaseYear" name="releaseYear" placeholder="Release year">
+  </div>
+  <div class="form-group">
+    <label for="length">Length</label>
+    <input type="text" class="form-control" [(ngModel)]="film?.filmEntity.length" id="length" name="length" placeholder="Length">
+  </div>
+  <app-category-dropdown [categories]="categories" id="category"></app-category-dropdown>
+  <app-language-dropdown id="language"></app-language-dropdown>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
