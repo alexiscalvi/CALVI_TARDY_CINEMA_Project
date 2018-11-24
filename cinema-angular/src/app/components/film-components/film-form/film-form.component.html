@@ -16,12 +16,12 @@
     <input type="text" class="form-control" [(ngModel)]="film.filmEntity.length" id="length" name="length" placeholder="Length">
   </div>
   <app-category-dropdown [categories]="categories" id="category" name="category" (categoryChange)="categoryChangeHandler($event)" ></app-category-dropdown>
-  <div *ngFor=" let category of film.categoryEntityList"> 1{{category.categoryId}}
-    <div (click)="rmCat(category)">
-ici
-    </div>
-  </div>
+  <div *ngFor=" let category of film.categoryEntityList" (click)="rmCat(category)"> {{category.name}}        Remove</div>
   <app-language-dropdown [languages]="languages" id="language"  name="language"  ></app-language-dropdown>
   <app-language-dropdown [languages]="languages" id="originalLanguage" name="originalLanguage" ></app-language-dropdown>
+
+  <div *ngFor=" let actor of film.actorEntityList" (click)="rmAct(actor)"> {{actor.firstName }} {{actor.lastName }}        Remove</div>
+
+  <app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

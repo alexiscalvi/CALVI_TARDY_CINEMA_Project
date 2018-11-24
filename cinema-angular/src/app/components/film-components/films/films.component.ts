@@ -38,13 +38,13 @@ export class FilmsComponent implements OnInit {
     });
 
   }
-  categoryChangeHandler(count: number) {
-    if (count === 0) {
+  categoryChangeHandler(category: Category) {
+    if (category === null) {
       this.filmService.getComplexFilms().subscribe(value => {
         this.complexFilms = value;
       });
     } else {
-      this.filmService.getComplexFilmsByCategoryId(count).subscribe( value => {
+      this.filmService.getComplexFilmsByCategoryId(category.categoryId).subscribe( value => {
         this.complexFilms = value;
       });
     }

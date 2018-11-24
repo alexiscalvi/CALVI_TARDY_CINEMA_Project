@@ -63,11 +63,11 @@ export class FilmFormComponent implements OnInit {
 
   }
 
-  categoryChangeHandler(count: number) {
-    if (count === 0) {
+  categoryChangeHandler(category: Category) {
+    if (category === null) {
       console.log('erreur');
     } else {
-      this.film.categoryEntityList.push(new Category(count, '', ''));
+      this.film.categoryEntityList.push(category);
       console.log(this.film.categoryEntityList);
     }
   }
@@ -80,5 +80,24 @@ export class FilmFormComponent implements OnInit {
       }
     }
     this.film.categoryEntityList = updatedArray;
+  }
+
+  rmAct(actor: Actor) {
+    let updatedArray = [];
+    for (let el of this.film.actorEntityList) {
+      if (el !== actor) {
+        updatedArray.push(el);
+      }
+    }
+    this.film.actorEntityList = updatedArray;
+  }
+
+  actorChangeHandler(actor: Actor) {
+    if (actor === null) {
+      console.log('erreur');
+    } else {
+      this.film.actorEntityList.push(actor);
+      console.log(this.film.actorEntityList);
+    }
   }
 }

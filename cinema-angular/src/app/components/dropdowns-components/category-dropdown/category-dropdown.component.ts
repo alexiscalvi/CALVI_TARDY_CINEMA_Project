@@ -12,15 +12,15 @@ export class CategoryDropdownComponent implements OnInit {
   categories: Category[];
 
 
-  @Output() categoryChange: EventEmitter<number> =   new EventEmitter();
+  @Output() categoryChange: EventEmitter<Category> =   new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  returnCategory(id: number) {
-    this.categoryChange.emit(id);
+  returnCategory(category: Category) {
+    this.categoryChange.emit(category);
   }
 
 }

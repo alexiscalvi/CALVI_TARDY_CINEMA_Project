@@ -3,6 +3,6 @@
 <input type="text" class="form-control" [(ngModel)]="actorSearched" placeholder="Recherche...">
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let actor of actors|filterActor:actorSearched">
-    <app-actor [actor]="actor"></app-actor>
+    <app-actor [actor]="actor" (click)="returnActor(actor)"></app-actor>
   </li>
 </ul>

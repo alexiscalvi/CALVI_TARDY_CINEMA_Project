@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Actor} from '../../../models/actor';
 import {ActorService} from '../../../services/actor.service';
+import {Category} from '../../../models/category';
 
 @Component({
   selector: 'app-actors',
@@ -11,6 +12,8 @@ export class ActorsComponent implements OnInit {
 
   private actors: Actor[];
   private actorSearched: String;
+
+  @Output() actorChange: EventEmitter<Actor> =   new EventEmitter();
 
   constructor(private actorServ: ActorService) {
   }
@@ -25,6 +28,9 @@ export class ActorsComponent implements OnInit {
   // On appelle le service pour enregistrer le visiteur
 
 
+  returnActor(actor: Actor) {
+    this.actorChange.emit(actor);
+  }
 }
 
 
