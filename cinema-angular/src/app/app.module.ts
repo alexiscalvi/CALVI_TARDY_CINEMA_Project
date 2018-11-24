@@ -19,6 +19,7 @@ import { CategoryComponent } from './components/category-components/category/cat
 import { HomeComponent } from './components/home/home.component';
 import { FilmFormComponent } from './components/film-components/film-form/film-form.component';
 import { LanguageDropdownComponent } from './components/dropdowns-components/language-dropdown/language-dropdown.component';
+import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { LanguageDropdownComponent } from './components/dropdowns-components/lan
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

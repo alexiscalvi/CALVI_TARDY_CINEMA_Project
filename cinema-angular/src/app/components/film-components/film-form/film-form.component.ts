@@ -7,6 +7,7 @@ import {ComplexFilm} from '../../../models/complex-film';
 import {Film} from '../../../models/film';
 import {FilmService} from '../../../services/film.service';
 import {Actor} from '../../../models/actor';
+import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'app-film-form',
@@ -23,6 +24,7 @@ export class FilmFormComponent implements OnInit {
   constructor(private filmService: FilmService, private categoryService: CategoryService, private languageService: LanguageService) { }
 
   ngOnInit() {
+    this.languages = <Array<Language>> new Array();
     this.film = new ComplexFilm(
       new Film(
         null,
@@ -45,6 +47,7 @@ export class FilmFormComponent implements OnInit {
       this.languages = value;
     });
 
+
   }
 
 
@@ -64,9 +67,7 @@ export class FilmFormComponent implements OnInit {
   }
 
   categoryChangeHandler(category: Category) {
-    if (category === null) {
-      console.log('erreur');
-    } else {
+    if (category !== null && !this.film.categoryEntityList.includes(category)) {
       this.film.categoryEntityList.push(category);
       console.log(this.film.categoryEntityList);
     }
@@ -82,6 +83,13 @@ export class FilmFormComponent implements OnInit {
     this.film.categoryEntityList = updatedArray;
   }
 
+  actorChangeHandler(actor: Actor) {
+    if (actor !== null && !this.film.actorEntityList.includes(actor)) {
+      this.film.actorEntityList.push(actor);
+      console.log(this.film.actorEntityList);
+    }
+  }
+
   rmAct(actor: Actor) {
     let updatedArray = [];
     for (let el of this.film.actorEntityList) {
@@ -92,12 +100,26 @@ export class FilmFormComponent implements OnInit {
     this.film.actorEntityList = updatedArray;
   }
 
-  actorChangeHandler(actor: Actor) {
-    if (actor === null) {
-      console.log('erreur');
-    } else {
-      this.film.actorEntityList.push(actor);
-      console.log(this.film.actorEntityList);
+  languageChangeHandler(language: Language) {
+    console.log(language);
+    if (language !== null) {
+      this.film.filmEntity.languageId = language.languageId;
+      console.log(this.film.filmEntity.languageId);
     }
+  }
+
+  rmLanguage() {
+    this.film.filmEntity.languageId = null;
+  }
+
+  originalLanguageChangeHandler(language: Language) {
+    if (language !== null) {
+      this.film.filmEntity.originalLanguageId = language.languageId;
+      console.log(this.film.filmEntity.originalLanguageId);
+    }
+  }
+
+  rmOriginalLanguage() {
+    this.film.filmEntity.originalLanguageId = null;
   }
 }

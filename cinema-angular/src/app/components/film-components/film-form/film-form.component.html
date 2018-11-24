@@ -16,11 +16,23 @@
     <input type="text" class="form-control" [(ngModel)]="film.filmEntity.length" id="length" name="length" placeholder="Length">
   </div>
   <app-category-dropdown [categories]="categories" id="category" name="category" (categoryChange)="categoryChangeHandler($event)" ></app-category-dropdown>
-  <div *ngFor=" let category of film.categoryEntityList" (click)="rmCat(category)"> {{category.name}}        Remove</div>
-  <app-language-dropdown [languages]="languages" id="language"  name="language"  ></app-language-dropdown>
-  <app-language-dropdown [languages]="languages" id="originalLanguage" name="originalLanguage" ></app-language-dropdown>
+  <button type="button" class="btn btn-secondary " *ngFor=" let category of film.categoryEntityList" (click)="rmCat(category)">
+    {{category.name}}
+    <mat-icon>delete_forever</mat-icon>
+  </button>
 
-  <div *ngFor=" let actor of film.actorEntityList" (click)="rmAct(actor)"> {{actor.firstName }} {{actor.lastName }}        Remove</div>
+  <app-language-dropdown [languages]="languages" id="language"  name="language"  (languageChange)="languageChangeHandler($event)"></app-language-dropdown>
+  <button type="button" class="btn btn-secondary " *ngIf="film.filmEntity.languageId " (click)="rmLanguage()"> {{ languages[film.filmEntity.languageId - 1]?.name }} <mat-icon>delete_forever</mat-icon></button>
+
+  <app-language-dropdown [languages]="languages" id="originalLanguage" name="originalLanguage" (languageChange)="originalLanguageChangeHandler($event)"> ></app-language-dropdown>
+  <button type="button" class="btn btn-secondary " *ngIf="film.filmEntity.originalLanguageId " (click)="rmOriginalLanguage()"> {{ languages[film.filmEntity.originalLanguageId - 1]?.name }} <mat-icon>delete_forever</mat-icon></button>
+
+  <div class="form-group">
+    <label for="button-list">Actors</label>
+    <div class="btn-group" id="button-list">
+      <button type="button" class="btn btn-secondary" *ngFor=" let actor of film.actorEntityList" (click)="rmAct(actor)"> {{actor.firstName }} {{actor.lastName }}        <mat-icon>delete_forever</mat-icon></button>
+    </div>
+  </div>
 
   <app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>
   <button type="submit" class="btn btn-primary">Submit</button>
