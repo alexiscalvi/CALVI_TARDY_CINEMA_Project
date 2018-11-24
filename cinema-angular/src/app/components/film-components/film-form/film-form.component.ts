@@ -61,7 +61,7 @@ export class FilmFormComponent implements OnInit {
       },
       (error) => { console.log(error.messages); },
       () => {
-        // window.location.href = 'films';
+        window.location.href = 'films';
       }
     );
 
