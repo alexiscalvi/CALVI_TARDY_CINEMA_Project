@@ -54,15 +54,16 @@ export class FilmFormComponent implements OnInit {
   valider(): void {
 
     console.log(this.film);
-    // this.filmService.addComplexFilm(this.film). subscribe(
-    //   () => {
-    //
-    //   },
-    //   (error) => { console.log(error.messages); },
-    //   () => {
-    //     window.location.href = 'films';
-    //   }
-    // );
+
+    this.filmService.addComplexFilm(this.film). subscribe(
+      () => {
+
+      },
+      (error) => { console.log(error.messages); },
+      () => {
+        // window.location.href = 'films';
+      }
+    );
 
   }
 
