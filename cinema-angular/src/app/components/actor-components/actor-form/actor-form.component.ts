@@ -23,7 +23,7 @@ export class ActorFormComponent implements OnInit {
 
   valider(): void {
 
-    this.actorService.adActor(this.actor). subscribe(
+    this.actorService.addActor(this.actor). subscribe(
       () => {
 
       },

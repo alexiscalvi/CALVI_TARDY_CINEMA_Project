@@ -38,7 +38,7 @@ export class FilmsComponent implements OnInit {
     });
 
   }
-  countChangedHandler(count: number) {
+  categoryChangeHandler(count: number) {
     if (count === 0) {
       this.filmService.getComplexFilms().subscribe(value => {
         this.complexFilms = value;

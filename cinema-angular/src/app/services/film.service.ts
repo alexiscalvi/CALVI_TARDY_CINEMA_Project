@@ -76,4 +76,8 @@ export class FilmService {
     return this.http.get(url).pipe(map(film => film as ComplexFilm));
   }
 
+  addComplexFilm(film: ComplexFilm) {
+    const url = environment.api + '/Film/addFilm';
+    return this.http.post(url, film);
+  }
 }

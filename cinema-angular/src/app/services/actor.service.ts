@@ -56,7 +56,7 @@ export class ActorService {
   //   return this.http.post(url, actor);
   // }
 
-  adActor(actor: Actor): Observable<Object> {
+  addActor(actor: Actor): Observable<Object> {
     const url = environment.api + '/Actor/addActor';
     return this.http.post(url, actor);
   }

@@ -12,7 +12,7 @@ export class CategoryDropdownComponent implements OnInit {
   categories: Category[];
 
 
-  @Output() countChanged: EventEmitter<number> =   new EventEmitter();
+  @Output() categoryChange: EventEmitter<number> =   new EventEmitter();
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class CategoryDropdownComponent implements OnInit {
   }
 
   returnCategory(id: number) {
-    this.countChanged.emit(id);
+    this.categoryChange.emit(id);
   }
 
 }
