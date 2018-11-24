@@ -13,6 +13,7 @@ public class FilmEntity {
     private String description;
     private int releaseYear;
     private Byte languageId;
+    private Byte originalLanguageId;
     private Byte rentalDuration;
     private BigDecimal rentalRate;
     private Short length;
@@ -22,6 +23,7 @@ public class FilmEntity {
     private Timestamp lastUpdate;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "film_id", nullable = false)
     public Short getFilmId() {
         return filmId;
@@ -69,6 +71,16 @@ public class FilmEntity {
 
     public void setLanguageId(Byte languageId) {
         this.languageId = languageId;
+    }
+
+    @Basic
+    @Column(name = "original_language_id", nullable = true)
+    public Byte getOriginalLanguageId() {
+        return originalLanguageId;
+    }
+
+    public void setOriginalLanguageId(Byte originalLanguageId) {
+        this.originalLanguageId = originalLanguageId;
     }
 
     @Basic

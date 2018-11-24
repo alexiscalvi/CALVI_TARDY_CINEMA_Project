@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.*;
 
@@ -181,27 +182,45 @@ public class FilmController {
             FilmActorEntity filmActorEntity = new FilmActorEntity();
 
             filmEntity = complexFilm.getFilmEntity();
+//            System.out.println("filmId:" + filmEntity.getFilmId());
+//            System.out.println("title:" + filmEntity.getTitle());
+//            System.out.println("languageId:" + filmEntity.getLanguageId());
+//            System.out.println("languageId:" + filmEntity.getOriginalLanguageId());
+//            System.out.println("lentg:" + filmEntity.getLength());
+            filmEntity.setRating("G");
+            filmEntity.setRentalDuration((byte) 0);
+            filmEntity.setRentalRate(BigDecimal.valueOf(0));
+            filmEntity.setReplacementCost(BigDecimal.valueOf(0));
+//            System.out.println("rating:" + filmEntity.getRating());
+            filmEntityRepository.save(filmEntity);
+            filmEntityRepository.flush();
+//            System.out.println("filmId:" + filmEntity.getFilmId());
+
             actorEntityList = complexFilm.getActorEntityList();
             categoryEntityList = complexFilm.getCategoryEntityList();
 
             filmActorEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (ActorEntity actor :
                     actorEntityList) {
+//                System.out.println("actorNom" + actor.getFirstName());
+//                System.out.println("actorNom" + actor.getActorId());
                 filmActorEntity.setActorId(actor.getActorId());
                 filmActorEntityRepository.save(filmActorEntity);
+                filmActorEntityRepository.flush();
             }
 
             filmCategoryEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (CategoryEntity category :
                     categoryEntityList) {
+//                System.out.println("categoryName" + filmCategoryEntity.getFilmId());
+//                System.out.println("categoryName" + category.getName());
+//                System.out.println("categoryName" + category.getCategoryId());
                 filmCategoryEntity.setCategoryId(category.getCategoryId());
-                filmActorEntityRepository.save(filmActorEntity);
+//                System.out.println("categoryName" + filmCategoryEntity.getCategoryId());
+                filmCategoryEntityRepository.save(filmCategoryEntity);
+                filmCategoryEntityRepository.flush();
             }
 
-            filmEntityRepository.save(filmEntity);
-            filmEntityRepository.flush();
-            filmEntityRepository.flush();
-            filmActorEntityRepository.flush();
         } catch (Exception e) {
             System.out.println(e);
             System.out.println(e.getMessage());
