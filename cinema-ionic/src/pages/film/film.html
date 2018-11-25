@@ -1,0 +1,77 @@
+<!--
+  Generated template for the FilmPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ film.filmEntity?.title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-card>
+      <ion-card-header>
+         Description:
+     </ion-card-header>
+      <ion-card-content>
+        {{ film?.filmEntity.description }}
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+         Released year:
+     </ion-card-header>
+      <ion-card-content>
+        {{ film?.filmEntity.releaseYear }}
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+         Length:
+     </ion-card-header>
+      <ion-card-content>
+        {{ film?.filmEntity.length }} min
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+         Language
+     </ion-card-header>
+      <ion-card-content>
+        {{ film?.languageNormal.name }}
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+         Categories
+     </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <button ion-item *ngFor="let category of film?.categoryEntityList">
+            {{category.name}}
+          </button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header>
+         Actors
+     </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <button ion-item *ngFor="let actor of film?.actorEntityList">
+            {{actor.firstName}}
+            {{actor.lastName}}
+          </button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>

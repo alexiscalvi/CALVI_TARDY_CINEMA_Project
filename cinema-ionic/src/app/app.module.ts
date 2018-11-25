@@ -9,6 +9,7 @@ import { FilmsPage } from '../pages/films/films';
 import { ActorsPage } from '../pages/actors/actors';
 import { AddActorPage } from '../pages/add-actor/add-actor';
 import { AddFilmPage } from '../pages/add-film/add-film';
+import { FilmPage } from '../pages/film/film';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +29,8 @@ import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
     ActorsPage,
     AddFilmPage,
     AddActorPage,
-    FilmNameFilterPipe
+    FilmNameFilterPipe,
+    FilmPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
     FilmsPage,
     ActorsPage,
     AddActorPage,
-    AddFilmPage
+    AddFilmPage,
+    FilmPage
   ],
   providers: [
     StatusBar,

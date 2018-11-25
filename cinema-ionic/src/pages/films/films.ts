@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ComplexFilm} from "../../models/complex-film";
 import {FilmProvider} from "../../providers/film/film";
+import {FilmPage} from "../film/film";
 
 /**
  * Generated class for the FilmsPage page.
@@ -32,4 +33,7 @@ export class FilmsPage {
     console.log('ionViewDidLoad FilmsPage');
   }
 
+  goToDetail(film: ComplexFilm){
+    this.navCtrl.push(FilmPage,{ film: film });
+  }
 }

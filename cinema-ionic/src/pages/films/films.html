@@ -23,7 +23,7 @@
     [(ngModel)]="filmSearched">
   </ion-searchbar>
   <ion-list>
-    <ion-card *ngFor="let film of films | filmNameFilter : filmSearched">
+    <ion-card *ngFor="let film of films | filmNameFilter : filmSearched" (click)="goToDetail(film)">
       <ion-card-header>
         <ion-card-title>
           {{film.filmEntity?.title}}
