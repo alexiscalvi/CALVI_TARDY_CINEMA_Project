@@ -1,0 +1,7 @@
+{
+  "name": "cinema-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
