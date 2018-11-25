@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Actor} from "../../models/Actor";
+import {Actor} from "../../models/actor";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs/Observable";
 
@@ -27,7 +27,7 @@ export class ActorProvider {
    * getTrips
    */
   public getActors(): Observable<Actor[]> {
-    const url = 'http://localhost:8080/' + 'Actor/getActors';
+    const url = 'http://192.168.1.19:8080/' + 'Actor/getActors';
     return this.http.get(url).pipe(map(actors => actors as Actor[]));
 
   }

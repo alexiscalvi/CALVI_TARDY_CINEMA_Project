@@ -17,4 +17,35 @@
 
 <ion-content padding>
 
+  <!--<input type="text" class="form-control" [(ngModel)]="filmSearched" placeholder="Recherche...">-->
+
+  <ion-searchbar
+    [(ngModel)]="filmSearched">
+  </ion-searchbar>
+  <ion-list>
+    <ion-card *ngFor="let film of films | filmNameFilter : filmSearched">
+      <ion-card-header>
+        <ion-card-title>
+          {{film.filmEntity?.title}}
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{film.filmEntity?.description}}
+      </ion-card-content>
+      <ion-row>
+        <ion-col center text-center>
+          <ion-note>
+            {{film.filmEntity?.length}} min
+          </ion-note>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+
+    <!--<button ion-item *ngFor="let film of films">-->
+
+      <!--&lt;!&ndash;<div class="item-note" item-end>&ndash;&gt;-->
+      <!--&lt;!&ndash;{{item.lastName}}&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</button>-->
+  </ion-list>
 </ion-content>

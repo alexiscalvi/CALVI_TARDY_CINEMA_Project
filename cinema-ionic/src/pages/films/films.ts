@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ComplexFilm} from "../../models/complex-film";
+import {FilmProvider} from "../../providers/film/film";
 
 /**
  * Generated class for the FilmsPage page.
@@ -15,7 +17,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FilmsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  films: ComplexFilm[];
+  filmSearched: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public filmProvider: FilmProvider) {
+    this.filmSearched = '';
+    this.films = [];
+    this.filmProvider.getComplexFilms().subscribe( value => {
+      this.films = value;
+    });
   }
 
   ionViewDidLoad() {

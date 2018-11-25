@@ -13,7 +13,11 @@ import { AddFilmPage } from '../pages/add-film/add-film';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ActorProvider } from '../providers/actor/actor';
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
+import { FilmProvider } from '../providers/film/film';
+import { CategoryProvider } from '../providers/category/category';
+import { LanguageProvider } from '../providers/language/language';
+import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     FilmsPage,
     ActorsPage,
     AddFilmPage,
-    AddActorPage
+    AddActorPage,
+    FilmNameFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,9 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ActorProvider,
+    FilmProvider,
+    CategoryProvider,
+    LanguageProvider,
   ]
 })
 export class AppModule {}
