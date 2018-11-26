@@ -18,9 +18,10 @@ import {ActorProvider} from "../../providers/actor/actor";
 export class ActorsPage {
 
   items: Actor[];
+  actorSearched: string;
 
   constructor(public navCtrl: NavController, public actorProvider: ActorProvider, public navParams: NavParams) {
-
+    this.actorSearched = '';
     this.items = [];
     this.actorProvider.getActors().subscribe( value => {
       console.log(value);

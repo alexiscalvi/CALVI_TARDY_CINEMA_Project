@@ -19,6 +19,7 @@ import { FilmProvider } from '../providers/film/film';
 import { CategoryProvider } from '../providers/category/category';
 import { LanguageProvider } from '../providers/language/language';
 import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
+import {ActorNameFilterPipe} from "../pipes/actor-name-filter/actor-name-filter";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
     AddFilmPage,
     AddActorPage,
     FilmNameFilterPipe,
+    ActorNameFilterPipe,
     FilmPage
   ],
   imports: [

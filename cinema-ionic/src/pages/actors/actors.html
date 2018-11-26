@@ -15,8 +15,11 @@
 
 
 <ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="actorSearched">
+  </ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let item of items">
+    <button ion-item *ngFor="let item of items | actorNameFilter : actorSearched">
       {{item.firstName}}
       {{item.lastName}}
       <!--<div class="item-note" item-end>-->
