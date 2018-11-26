@@ -55,12 +55,12 @@ export class FilmFormComponent implements OnInit {
       this.languages = value;
     });
 
-    this.filmService.getComplexFilm(this.id).subscribe( (value) => {
-      this.film = value;
-      console.log(this.film);
-    });
-
-
+    if (this.id) {
+      this.filmService.getComplexFilm(this.id).subscribe((value) => {
+        this.film = value;
+        console.log(this.film);
+      });
+    }
   }
 
 
