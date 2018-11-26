@@ -237,4 +237,35 @@ public class FilmController {
         }
     }
 
+    @PostMapping("/updateComplexFilm")
+    public void updateComplexFilm(  @Valid @RequestBody ComplexFilm complexFilm){
+        String destinationPage = "";
+        try {
+            this.filmEntityRepository.save(complexFilm.getFilmEntity());
+            this.filmEntityRepository.flush();
+
+            FilmActorEntity filmActorEntity = new FilmActorEntity();
+            filmActorEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
+            for (ActorEntity actorEntity :
+                    complexFilm.getActorEntityList()) {
+                filmActorEntity.setActorId(actorEntity.getActorId());
+                this.filmActorEntityRepository.save(filmActorEntity);
+                this.filmActorEntityRepository.flush();
+            }
+            
+            FilmCategoryEntity filmCategoryEntity = new FilmCategoryEntity();
+            filmCategoryEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
+            for (CategoryEntity categoryEntity :
+                    complexFilm.getCategoryEntityList()) {
+                filmCategoryEntity.setCategoryId(categoryEntity.getCategoryId());
+                this.filmCategoryEntityRepository.save(filmCategoryEntity);
+                this.filmCategoryEntityRepository.flush();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
+            ResponseEntity.notFound().build();
+        }
+    }
+
 }
