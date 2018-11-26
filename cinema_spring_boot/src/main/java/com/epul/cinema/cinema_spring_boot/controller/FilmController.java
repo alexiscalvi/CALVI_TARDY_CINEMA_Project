@@ -57,7 +57,7 @@ public class FilmController {
         String destinationPage = "";
         List<FilmEntity> mesFilms = null;
         List<ComplexFilm> complexFilmList = new ArrayList<>();
-        FilmCategoryEntity filmCategoryEntity = null;
+        List<FilmCategoryEntity> filmCategoryEntityList = null;
         List<FilmActorEntity> filmActorEntityList = null;
         try {
             mesFilms = filmEntityRepository.findAll();
@@ -65,8 +65,11 @@ public class FilmController {
                 ComplexFilm complexFilm = new ComplexFilm();
                 complexFilm.setFilmEntity(f);
 
-                filmCategoryEntity = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
-                complexFilm.addCategoryEntity(categoryEntityRepository.getOne(filmCategoryEntity.getCategoryId()));
+                filmCategoryEntityList = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
+                for (FilmCategoryEntity fc :
+                        filmCategoryEntityList) {
+                    complexFilm.addCategoryEntity(categoryEntityRepository.getOne(fc.getCategoryId()));
+                }
 
                 filmActorEntityList = filmActorEntityRepository.getActorsByFilmId(f.getFilmId());
                 for (FilmActorEntity fa :
@@ -111,8 +114,11 @@ public class FilmController {
             f = (FilmEntity) filmEntityRepository.findFilmById((short) filmId);
             complexFilm.setFilmEntity(f);
 
-            FilmCategoryEntity filmCategoryEntity = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
-            complexFilm.addCategoryEntity(categoryEntityRepository.getOne(filmCategoryEntity.getCategoryId()));
+            List<FilmCategoryEntity> filmCategoryEntityList = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
+            for (FilmCategoryEntity fc :
+                    filmCategoryEntityList) {
+                complexFilm.addCategoryEntity(categoryEntityRepository.getOne(fc.getCategoryId()));
+            }
 
             List<FilmActorEntity> filmActorEntityList = filmActorEntityRepository.getActorsByFilmId(f.getFilmId());
             for (FilmActorEntity fa :
@@ -148,8 +154,11 @@ public class FilmController {
                 ComplexFilm complexFilm = new ComplexFilm();
                 complexFilm.setFilmEntity(f);
 
-                FilmCategoryEntity filmCategoryEntity = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
-                complexFilm.addCategoryEntity(categoryEntityRepository.getOne(filmCategoryEntity.getCategoryId()));
+                List<FilmCategoryEntity> filmCategoryEntityList2 = filmCategoryEntityRepository.getFilmCategoriesByFilmId(f.getFilmId());
+                for (FilmCategoryEntity fc :
+                        filmCategoryEntityList2) {
+                    complexFilm.addCategoryEntity(categoryEntityRepository.getOne(fc.getCategoryId()));
+                }
 
                 filmActorEntityList = filmActorEntityRepository.getActorsByFilmId(f.getFilmId());
                 for (FilmActorEntity fa :

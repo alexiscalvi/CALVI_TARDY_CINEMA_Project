@@ -14,7 +14,7 @@ public interface FilmCategoryEntityRepository extends JpaRepository<FilmCategory
             " from FilmCategoryEntity fc "+
             " where fc.filmId=:filmId"
     )
-    FilmCategoryEntity getFilmCategoriesByFilmId(@Param("filmId") short filmId);
+    List<FilmCategoryEntity> getFilmCategoriesByFilmId(@Param("filmId") short filmId);
 
     @Query(" Select fc " +
             " from FilmCategoryEntity fc "+
