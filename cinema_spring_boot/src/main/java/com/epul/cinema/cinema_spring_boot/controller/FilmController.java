@@ -244,6 +244,9 @@ public class FilmController {
             this.filmEntityRepository.save(complexFilm.getFilmEntity());
             this.filmEntityRepository.flush();
 
+            this.filmActorEntityRepository.deleteByFilmId(complexFilm.getFilmEntity().getFilmId());
+            this.filmActorEntityRepository.flush();
+
             FilmActorEntity filmActorEntity = new FilmActorEntity();
             filmActorEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (ActorEntity actorEntity :
@@ -252,7 +255,10 @@ public class FilmController {
                 this.filmActorEntityRepository.save(filmActorEntity);
                 this.filmActorEntityRepository.flush();
             }
-            
+
+            this.filmCategoryEntityRepository.deleteByFilmId(complexFilm.getFilmEntity().getFilmId());
+            this.filmCategoryEntityRepository.flush();
+
             FilmCategoryEntity filmCategoryEntity = new FilmCategoryEntity();
             filmCategoryEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (CategoryEntity categoryEntity :
