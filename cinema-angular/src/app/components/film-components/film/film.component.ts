@@ -34,5 +34,4 @@ export class FilmComponent implements OnInit {
       console.log(this.filmComplex);
     });
   }
-
 }

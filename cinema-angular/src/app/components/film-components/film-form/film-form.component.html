@@ -35,5 +35,6 @@
   </div>
 
   <app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button *ngIf="id" type="submit" class="btn btn-primary">Update</button>
+  <button *ngIf="!id"type="submit" class="btn btn-primary">Submit</button>
 </form>

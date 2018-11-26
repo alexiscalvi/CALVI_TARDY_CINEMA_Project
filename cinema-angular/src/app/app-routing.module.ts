@@ -13,7 +13,8 @@ const routes: Routes = [
   {path: 'films', component: FilmsComponent},
   {path: 'addActor', component: ActorFormComponent },
   {path: 'addFilm', component: FilmFormComponent },
-  {path: 'film/:id', component: FilmComponent}
+  {path: 'film/:id', component: FilmComponent},
+  {path: 'addFilm/:id', component: FilmFormComponent},
 ];
 
 @NgModule({

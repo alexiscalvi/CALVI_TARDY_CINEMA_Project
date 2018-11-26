@@ -8,6 +8,7 @@ import {Film} from '../../../models/film';
 import {FilmService} from '../../../services/film.service';
 import {Actor} from '../../../models/actor';
 import {MatIconModule} from '@angular/material/icon';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-film-form',
@@ -20,10 +21,17 @@ export class FilmFormComponent implements OnInit {
   private film: ComplexFilm;
   private categories: Category[];
   private languages: Language[];
+  private id: number;
 
-  constructor(private filmService: FilmService, private categoryService: CategoryService, private languageService: LanguageService) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private filmService: FilmService,
+              private categoryService: CategoryService,
+              private languageService: LanguageService) { }
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe((id2) => this.id = +id2.get('id'));
     this.languages = <Array<Language>> new Array();
     this.film = new ComplexFilm(
       new Film(
@@ -47,6 +55,11 @@ export class FilmFormComponent implements OnInit {
       this.languages = value;
     });
 
+    this.filmService.getComplexFilm(this.id).subscribe( (value) => {
+      this.film = value;
+      console.log(this.film);
+    });
+
 
   }
 
@@ -54,16 +67,31 @@ export class FilmFormComponent implements OnInit {
   valider(): void {
 
     console.log(this.film);
+    if (!this.id) {
+      this.filmService.addComplexFilm(this.film).subscribe(
+        () => {
 
-    this.filmService.addComplexFilm(this.film). subscribe(
-      () => {
+        },
+        (error) => {
+          console.log(error.messages);
+        },
+        () => {
+          window.location.href = 'films';
+        }
+      );
+    } else {
+      this.filmService.updateComplexFilm(this.film).subscribe(
+        () => {
 
-      },
-      (error) => { console.log(error.messages); },
-      () => {
-        window.location.href = 'films';
-      }
-    );
+        },
+        (error) => {
+          console.log(error.messages);
+        },
+        () => {
+          window.location.href = 'film/' + this.film.filmEntity.filmId;
+        }
+      );
+    }
 
   }
 
@@ -75,8 +103,8 @@ export class FilmFormComponent implements OnInit {
   }
 
   rmCat(category: Category) {
-    let updatedArray = [];
-    for (let el of this.film.categoryEntityList) {
+    const updatedArray = [];
+    for (const el of this.film.categoryEntityList) {
       if (el !== category) {
         updatedArray.push(el);
       }
@@ -92,8 +120,8 @@ export class FilmFormComponent implements OnInit {
   }
 
   rmAct(actor: Actor) {
-    let updatedArray = [];
-    for (let el of this.film.actorEntityList) {
+    const updatedArray = [];
+    for (const el of this.film.actorEntityList) {
       if (el !== actor) {
         updatedArray.push(el);
       }

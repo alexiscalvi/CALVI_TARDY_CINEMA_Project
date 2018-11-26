@@ -80,4 +80,9 @@ export class FilmService {
     const url = environment.api + this. type + 'addComplexFilm';
     return this.http.post(url, film);
   }
+
+  updateComplexFilm(film: ComplexFilm) {
+    const url = environment.api + this. type + 'updateComplexFilm';
+    return this.http.post(url, film);
+  }
 }
