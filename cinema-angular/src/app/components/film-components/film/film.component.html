@@ -6,7 +6,7 @@
   </div>
   <div class="row">
 
-    <div class="col">
+    <div class="col-lg">
       <div class="row">
         <h5>
           Description:
@@ -60,11 +60,11 @@
       </div>
     </div>
 
-    <div class="col">
-      <div class="row justify-content-md-center">
+    <div class="col-lg">
+      <div class="row-g justify-content-center">
         <h5>Liste des acteurs</h5>
       </div>
-      <div class="row justify-content-md-center" >
+      <div class="row-lg justify-content-center" >
         <ul class="list-group">
           <li class="list-group-item" *ngFor="let actor of filmComplex?.actorEntityList">
             <app-actor [actor]="actor"></app-actor>
