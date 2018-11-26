@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Actor} from "../../models/actor";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs/Observable";
+import {environment} from "../../environments/environment";
 
 /*
   Generated class for the ActorProvider provider.
@@ -27,7 +28,7 @@ export class ActorProvider {
    * getTrips
    */
   public getActors(): Observable<Actor[]> {
-    const url = 'http://192.168.1.19:8080/' + 'Actor/getActors';
+    const url = environment.api + 'Actor/getActors';
     return this.http.get(url).pipe(map(actors => actors as Actor[]));
 
   }

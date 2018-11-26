@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs/Observable";
 import {ComplexFilm} from "../../models/complex-film";
+import {environment} from "../../environments/environment";
 
 /*
   Generated class for the FilmProvider provider.
@@ -21,7 +22,7 @@ export class FilmProvider {
    * getTrips
    */
   public getComplexFilms(): Observable<ComplexFilm[]> {
-    const url = 'http://192.168.1.19:8080/' + 'Film/getComplexFilms';
+    const url = environment.api + 'Film/getComplexFilms';
     return this.http.get(url).pipe(map(films => films as ComplexFilm[]));
 
   }
