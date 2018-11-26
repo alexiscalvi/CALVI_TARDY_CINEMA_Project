@@ -68,6 +68,7 @@ export class FilmFormComponent implements OnInit {
 
     console.log(this.film);
     if (!this.id) {
+      console.log('save');
       this.filmService.addComplexFilm(this.film).subscribe(
         () => {
 
@@ -80,6 +81,8 @@ export class FilmFormComponent implements OnInit {
         }
       );
     } else {
+      console.log('update');
+      console.log(this.film);
       this.filmService.updateComplexFilm(this.film).subscribe(
         () => {
 
