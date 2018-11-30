@@ -19,7 +19,17 @@ import { CategoryComponent } from './components/category-components/category/cat
 import { HomeComponent } from './components/home/home.component';
 import { FilmFormComponent } from './components/film-components/film-form/film-form.component';
 import { LanguageDropdownComponent } from './components/dropdowns-components/language-dropdown/language-dropdown.component';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatToolbarModule,
+  MatInputModule,
+  MatProgressSpinnerModule,
+  MatCardModule,
+  MatMenuModule,
+  MatIconModule,
+  MatGridListModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -37,7 +47,7 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, M
     CategoryComponent,
     HomeComponent,
     FilmFormComponent,
-    LanguageDropdownComponent
+    LanguageDropdownComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +55,8 @@ import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, M
     HttpClientModule,
     FormsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,8 @@
+ul {
+
+  height: 700px;
+  overflow-y: scroll;
+
+// Again this is where the magic happens
+  -webkit-overflow-scrolling: touch;
+}
