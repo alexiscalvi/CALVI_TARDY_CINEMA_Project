@@ -16,5 +16,16 @@
 
 
 <ion-content padding>
+  <form (ngSubmit)="valider()">
+    <ion-item>
+      <ion-label for="firstName">Prénom</ion-label>
+      <ion-input type="text" class="form-control" required [(ngModel)]="actor.firstName" id="firstName" name="firstName" placeholder="..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="lastName">Nom</ion-label>
+      <ion-input type="text" class="form-control" required [(ngModel)]="actor.lastName" id="lastName" name="lastName" placeholder="..."></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Submit</button>
+  </form>
 
 </ion-content>
