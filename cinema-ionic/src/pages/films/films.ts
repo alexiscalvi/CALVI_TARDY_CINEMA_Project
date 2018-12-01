@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {ComplexFilm} from "../../models/complex-film";
 import {FilmProvider} from "../../providers/film/film";
 import {FilmPage} from "../film/film";
+import {AddFilmPage} from "../add-film/add-film";
 
 /**
  * Generated class for the FilmsPage page.
@@ -21,7 +22,7 @@ export class FilmsPage {
   films: ComplexFilm[];
   filmSearched: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public filmProvider: FilmProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public filmProvider: FilmProvider, public modalController: ModalController) {
     this.filmSearched = '';
     this.films = [];
     this.filmProvider.getComplexFilms().subscribe( value => {
@@ -35,5 +36,11 @@ export class FilmsPage {
 
   goToDetail(film: ComplexFilm){
     this.navCtrl.push(FilmPage,{ film: film });
+  }
+
+
+  addFilm(){
+    let modal = this.modalController.create(AddFilmPage);
+    modal.present();
   }
 }
