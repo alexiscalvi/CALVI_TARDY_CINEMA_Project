@@ -11,6 +11,7 @@ public class ComplexFilm {
     private List<CategoryEntity> categoryEntityList;
     private List<ActorEntity> actorEntityList;
     private Language languageNormal;
+    private Language languageVO;
 
 
     public ComplexFilm() {
@@ -63,5 +64,13 @@ public class ComplexFilm {
 
     public void setLanguageNormal(Language languageNormal) {
         this.languageNormal = languageNormal;
+    }
+
+    public Language getLanguageVO() {
+        return languageVO;
+    }
+
+    public void setLanguageVO(Language languageVO) {
+        this.languageVO = languageVO;
     }
 }

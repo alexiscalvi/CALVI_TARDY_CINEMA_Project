@@ -81,6 +81,14 @@ public class FilmController {
 
                 Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
                 complexFilm.setLanguageNormal(language);
+
+//                if( f.getOriginalLanguageId() != null) {
+                    LanguageEntity languageVOEntity = languageEntityRepository.getOne(f.getOriginalLanguageId());
+
+                    Language languageVO = new Language(languageVOEntity.getLanguageId(), languageVOEntity.getName(), languageVOEntity.getLastUpdate());
+                    complexFilm.setLanguageVO(languageVO);
+//                }
+
                 complexFilmList.add(complexFilm);
             }
         } catch (Exception e) {
@@ -130,6 +138,12 @@ public class FilmController {
 
             Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
             complexFilm.setLanguageNormal(language);
+
+
+            LanguageEntity languageVOEntity = languageEntityRepository.getOne(f.getOriginalLanguageId());
+
+            Language languageVO = new Language(languageVOEntity.getLanguageId(),languageVOEntity.getName(),languageVOEntity.getLastUpdate());
+            complexFilm.setLanguageVO(languageVO);
         } catch (Exception e) {
             System.out.println("ERROR:" + e.getMessage());
             ResponseEntity.notFound().build();
@@ -169,6 +183,10 @@ public class FilmController {
                 LanguageEntity languageEntity = languageEntityRepository.getOne(f.getLanguageId());
                 Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
                 complexFilm.setLanguageNormal(language);
+
+                LanguageEntity languageVOEntity = languageEntityRepository.getOne(f.getOriginalLanguageId());
+                Language languageVO = new Language(languageVOEntity.getLanguageId(),languageVOEntity.getName(),languageVOEntity.getLastUpdate());
+                complexFilm.setLanguageVO(languageVO);
 
                 complexFilmList.add(complexFilm);
             }
