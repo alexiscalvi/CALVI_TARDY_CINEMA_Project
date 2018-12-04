@@ -20,6 +20,7 @@ import { CategoryProvider } from '../providers/category/category';
 import { LanguageProvider } from '../providers/language/language';
 import { FilmNameFilterPipe } from '../pipes/film-name-filter/film-name-filter';
 import {ActorNameFilterPipe} from "../pipes/actor-name-filter/actor-name-filter";
+import {AddCategoryPage} from "../pages/add-category/add-category";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ActorNameFilterPipe} from "../pipes/actor-name-filter/actor-name-filter"
     AddActorPage,
     FilmNameFilterPipe,
     ActorNameFilterPipe,
-    FilmPage
+    FilmPage,
+    AddCategoryPage
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import {ActorNameFilterPipe} from "../pipes/actor-name-filter/actor-name-filter"
     ActorsPage,
     AddActorPage,
     AddFilmPage,
-    FilmPage
+    FilmPage,
+    AddCategoryPage
   ],
   providers: [
     StatusBar,

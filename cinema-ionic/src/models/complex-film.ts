@@ -8,7 +8,8 @@ export class ComplexFilm {
     public filmEntity?: Film,
     public actorEntityList?: Actor[],
     public categoryEntityList?: Category[],
-    public languageNormal?: Language
+    public languageNormal?: Language,
+    public languageVO?: Language
   ) {
   }
 

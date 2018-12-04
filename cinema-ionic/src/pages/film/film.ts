@@ -20,6 +20,8 @@ export class FilmPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.film = this.navParams.get('film');
+    console.log("après");
+    console.log(this.film);
   }
 
   ionViewDidLoad() {

@@ -30,7 +30,7 @@ export class MyApp {
       { title: 'Films', component: FilmsPage },
       { title: 'Actors', component: ActorsPage },
       { title: 'Add a film', component: AddFilmPage },
-      { title: 'Add an actor', component: AddActorPage }
+      // { title: 'Add an actor', component: AddActorPage }
     ];
 
   }

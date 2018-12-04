@@ -24,7 +24,7 @@ export class ActorsPage {
     this.actorSearched = '';
     this.items = [];
     this.actorProvider.getActors().subscribe( value => {
-      console.log(value);
+      // console.log(value);
       this.items = value;
     });
     // for (let i = 1; i < 11; i++) {

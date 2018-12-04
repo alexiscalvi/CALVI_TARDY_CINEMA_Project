@@ -1,5 +1,5 @@
 <!--
-  Generated template for the AddActorPage page.
+  Generated template for the AddCategoryPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add actors</ion-title>
+    <ion-title>AddCategory</ion-title>
     <ion-buttons end>
       <button ion-button (click)="closeAndAcceptModal()">OK</button>
       <button ion-button (click)="closeModal()">Close</button>
@@ -21,10 +21,9 @@
   <ion-list>
     <ion-item *ngFor="let item of items" >
       <ion-label>
-        {{item.firstName}}
-        {{item.lastName}}
+        {{item.name}}
       </ion-label>
-      <ion-checkbox (ionChange)="addThisActor(item)"></ion-checkbox>
+      <ion-checkbox (ionChange)="addThisCategory(item)"></ion-checkbox>
     </ion-item>
   </ion-list>
 </ion-content>

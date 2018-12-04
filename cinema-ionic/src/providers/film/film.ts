@@ -28,4 +28,8 @@ export class FilmProvider {
   }
 
 
+  addComplexFilm(film: ComplexFilm) {
+  const url = environment.api + 'Film/addComplexFilm';
+  return this.http.post(url, film);
+  }
 }

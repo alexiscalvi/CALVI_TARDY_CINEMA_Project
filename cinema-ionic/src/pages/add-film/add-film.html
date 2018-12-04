@@ -31,9 +31,41 @@
       <ion-label class="h3"for="length">Length</ion-label>
       <ion-input type="text" class="form-control" [(ngModel)]="film?.filmEntity.length" id="length" name="length" placeholder="..."></ion-input>
     </ion-item>
-    <!--<ion-item>-->
-      <!--<ion-label class="h3">Category</ion-label>-->
-      <!--<app-category-dropdown [categories]="categories" id="category" name="category" (categoryChange)="categoryChangeHandler($event)" ></app-category-dropdown>-->
+
+
+    <ion-label class="h3">Categories</ion-label>
+    <button ion-button (click)="addCategory()" type="button" block>Add a category</button>
+
+    <ion-list *ngIf="film?.categoryEntityList">
+      <button ion-item *ngFor="let category of film?.categoryEntityList">
+        {{category.name}}
+      </button>
+    </ion-list>
+
+
+    <ion-label class="h3">Actors</ion-label>
+    <button ion-button (click)="addActor()" type="button" block>Add an actor</button>
+
+    <ion-list *ngIf="film?.actorEntityList">
+      <button ion-item *ngFor="let actor of film?.actorEntityList">
+        {{actor.firstName}}
+        {{actor.lastName}}
+      </button>
+    </ion-list>
+
+    <ion-item>
+      <ion-label class="h3">Language</ion-label>
+      <ion-select [(ngModel)]="film?.filmEntity.languageId" name="languageId">
+        <ion-option *ngFor="let language of languages" value="{{language.languageId}}">{{language.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label class="h3">Language VO</ion-label>
+      <ion-select [(ngModel)]="film?.filmEntity.originalLanguageId" name="VOLanguageId">
+        <ion-option *ngFor="let language of languages" value="{{language.languageId}}">{{language.name}}</ion-option>
+      </ion-select>
+    </ion-item>
+
     <!--</ion-item>-->
     <!--<ion-item>-->
       <!--<ul class="list-group" >-->
