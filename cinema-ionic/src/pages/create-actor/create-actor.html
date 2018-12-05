@@ -1,0 +1,31 @@
+<!--
+  Generated template for the CreateActorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Add an Actor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="valider()">
+    <ion-item>
+      <ion-label for="firstName">First Name</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="actor.firstName" id="firstName" name="firstName" placeholder="..."></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label for="lastName">Last Name</ion-label>
+      <ion-input type="text" class="form-control" [(ngModel)]="actor.lastName" id="lastName" name="lastName" placeholder="..."></ion-input>
+    </ion-item>
+
+    <button ion-button type="submit" block>Submit</button>
+  </form>
+</ion-content>

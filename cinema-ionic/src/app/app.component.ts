@@ -9,6 +9,7 @@ import {FilmsPage} from "../pages/films/films";
 import {ActorsPage} from "../pages/actors/actors";
 import {AddFilmPage} from "../pages/add-film/add-film";
 import {AddActorPage} from "../pages/add-actor/add-actor";
+import {CreateActorPage} from "../pages/create-actor/create-actor";
 
 @Component({
   templateUrl: 'app.html'
@@ -30,7 +31,7 @@ export class MyApp {
       { title: 'Films', component: FilmsPage },
       { title: 'Actors', component: ActorsPage },
       { title: 'Add a film', component: AddFilmPage },
-      // { title: 'Add an actor', component: AddActorPage }
+      { title: 'Add an actor', component: CreateActorPage }
     ];
 
   }
