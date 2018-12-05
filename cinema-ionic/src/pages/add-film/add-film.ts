@@ -31,6 +31,7 @@ export class AddFilmPage {
   languages: Language[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalController: ModalController, public filmProvider: FilmProvider, public languageProvider: LanguageProvider) {
+
     this.languageProvider.getLanguages().subscribe( value => {
       this.languages = value;
     });
@@ -49,6 +50,11 @@ export class AddFilmPage {
         '',
         '',
         ''), <Array<Actor>> new Array(), <Array<Category>> new Array());
+
+    let film2 = this.navParams.get('film');
+    if (film2) {
+      this.film = film2;
+    }
   }
 
   ionViewDidLoad() {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {ComplexFilm} from "../../models/complex-film";
+import {AddFilmPage} from "../add-film/add-film";
 
 /**
  * Generated class for the FilmPage page.
@@ -28,4 +29,7 @@ export class FilmPage {
     console.log('ionViewDidLoad FilmPage');
   }
 
+  public updateFilm(){
+    this.navCtrl.push(AddFilmPage, {film: this.film});
+  }
 }

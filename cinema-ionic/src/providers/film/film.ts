@@ -29,7 +29,12 @@ export class FilmProvider {
 
 
   addComplexFilm(film: ComplexFilm) {
-  const url = environment.api + 'Film/addComplexFilm';
-  return this.http.post(url, film);
+    const url = environment.api + 'Film/addComplexFilm';
+    return this.http.post(url, film);
+  }
+
+  getComplexFilm(filmId : number): Observable<ComplexFilm> {
+    const url = environment.api + 'Film/getComplexFilm/' + filmId;
+    return this.http.get(url).pipe(map(film => film as ComplexFilm));
   }
 }
