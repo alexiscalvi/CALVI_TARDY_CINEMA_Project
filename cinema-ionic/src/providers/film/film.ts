@@ -37,4 +37,9 @@ export class FilmProvider {
     const url = environment.api + 'Film/getComplexFilm/' + filmId;
     return this.http.get(url).pipe(map(film => film as ComplexFilm));
   }
+
+  public updateComplexFilm(film: ComplexFilm) {
+    const url = environment.api + 'Film/updateComplexFilm';
+    return this.http.post(url, film);
+  }
 }

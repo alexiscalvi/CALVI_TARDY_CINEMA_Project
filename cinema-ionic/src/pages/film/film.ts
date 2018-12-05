@@ -30,6 +30,7 @@ export class FilmPage {
   }
 
   public updateFilm(){
-    this.navCtrl.push(AddFilmPage, {film: this.film});
+    let copy = JSON.parse(JSON.stringify(this.film));
+    this.navCtrl.push(AddFilmPage, {film: copy});
   }
 }

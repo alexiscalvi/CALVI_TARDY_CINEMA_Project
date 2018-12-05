@@ -28,10 +28,17 @@ import {FilmPage} from "../film/film";
 export class AddFilmPage {
 
   film: ComplexFilm;
+  filmtempon: ComplexFilm;
   languages: Language[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalController: ModalController, public filmProvider: FilmProvider, public languageProvider: LanguageProvider) {
+  }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad AddFilmPage');
+  }
+  ionViewWillEnter() {
+    console.log('ionViewWillEnter AddFilmPage');
     this.languageProvider.getLanguages().subscribe( value => {
       this.languages = value;
     });
@@ -52,14 +59,15 @@ export class AddFilmPage {
         ''), <Array<Actor>> new Array(), <Array<Category>> new Array());
 
     let film2 = this.navParams.get('film');
+    console.log("coucou:");
+    console.log(film2);
     if (film2) {
       this.film = film2;
     }
+    this.filmtempon = this.film;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddFilmPage');
-  }
+
 
   public addCategory() {
     let modal = this.modalController.create(AddCategoryPage);
@@ -92,6 +100,8 @@ export class AddFilmPage {
   }
 
   public valider() {
+
+    //[TODO: if id update movie not create
     this.languages.map(value => {
       if (value.languageId == this.film.filmEntity.languageId) {
         this.film.languageNormal = value;
@@ -103,7 +113,7 @@ export class AddFilmPage {
       }
     });
 
-    // if (!this.id) {
+    if (!this.film.filmEntity.filmId) {
 console.log(this.film);
       console.log('save');
       this.filmProvider.addComplexFilm(this.film).subscribe(
@@ -119,20 +129,22 @@ console.log(this.film);
           });
         }
       );
-    // } else {
+    } else {
     //   console.log('update');
     //   console.log(this.film);
-    //   this.filmService.updateComplexFilm(this.film).subscribe(
-    //     () => {
-    //
-    //     },
-    //     (error) => {
-    //       console.log(error.messages);
-    //     },
-    //     () => {
-    //       window.location.href = 'film/' + this.film.filmEntity.filmId;
-    //     }
-    //   );
-    // }
+      this.filmProvider.updateComplexFilm(this.film).subscribe(
+        () => {
+
+        },
+        (error) => {
+          console.log(error.messages);
+        },
+        () => {
+          this.navCtrl.push(FilmPage, {
+          film: this.film
+        });
+        }
+      );
+    }
   }
 }

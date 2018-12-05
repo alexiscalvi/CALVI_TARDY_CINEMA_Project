@@ -107,8 +107,8 @@
       <!--<app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>-->
     <!--</ion-item>-->
 
-      <button ion-button *ngIf="id" type="submit" block>Update</button>
-      <button ion-button *ngIf="!id" type="submit" block>Submit</button>
+      <button ion-button *ngIf="film?.filmEntity.filmId" type="submit" block>Update</button>
+      <button ion-button *ngIf="!film?.filmEntity.filmId" type="submit" block>Submit</button>
 
   </form>
 </ion-content>
