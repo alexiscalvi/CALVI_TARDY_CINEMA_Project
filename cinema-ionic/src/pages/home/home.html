@@ -8,11 +8,16 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <h1 text-center>Welcome on the Movie App</h1>
+  <h1 text-center>where you can find and add any film you want.</h1>
+  <ion-slides>
+    <ion-slide (click)="goToActors()">
+      <h3>Actors</h3>
+      <img src="../../assets/imgs/casting.jpg" >
+    </ion-slide>
+    <ion-slide (click)="goToFilms()">
+      <h3>Films</h3>
+      <img src="../../assets/imgs/movies-tiles.jpg" >
+    </ion-slide>
+  </ion-slides>
 </ion-content>
