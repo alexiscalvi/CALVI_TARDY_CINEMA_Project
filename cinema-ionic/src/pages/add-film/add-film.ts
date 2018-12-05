@@ -7,8 +7,6 @@ import {ComplexFilm} from "../../models/complex-film";
 import {Actor} from "../../models/actor";
 import {AddActorPage} from "../add-actor/add-actor";
 import {FilmProvider} from "../../providers/film/film";
-import {ListPage} from "../list/list";
-import {FilmsPage} from "../films/films";
 import {Language} from "../../models/language";
 import {LanguageProvider} from "../../providers/language/language";
 import {FilmPage} from "../film/film";

@@ -4,7 +4,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { FilmsPage } from '../pages/films/films';
 import { ActorsPage } from '../pages/actors/actors';
 import { AddActorPage } from '../pages/add-actor/add-actor';
@@ -27,7 +26,6 @@ import {CreateActorPage} from "../pages/create-actor/create-actor";
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     FilmsPage,
     ActorsPage,
     AddFilmPage,
@@ -47,7 +45,6 @@ import {CreateActorPage} from "../pages/create-actor/create-actor";
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     FilmsPage,
     ActorsPage,
     AddActorPage,
