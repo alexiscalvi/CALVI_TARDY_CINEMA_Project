@@ -19,12 +19,12 @@
     [(ngModel)]="actorSearched">
   </ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let item of items | actorNameFilter : actorSearched">
+    <button  icon-end="trash" ion-item *ngFor="let item of items | actorNameFilter : actorSearched">
       {{item.firstName}}
       {{item.lastName}}
-      <!--<div class="item-note" item-end>-->
-        <!--{{item.lastName}}-->
-      <!--</div>-->
+       <button item-end ion-button color="danger" (click)="removeActor(item)">
+         <ion-icon name="trash" item-end ></ion-icon>
+       </button>
     </button>
   </ion-list>
 </ion-content>

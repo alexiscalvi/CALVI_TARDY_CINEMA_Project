@@ -38,4 +38,9 @@ export class ActorProvider {
     const url = environment.api + '/Actor/addActor';
     return this.http.post(url, actor);
   }
+
+  public removeActor(actor: Actor) {
+    const url = environment.api + '/Actor/removeActor';
+    return this.http.post(url, actor);
+  }
 }

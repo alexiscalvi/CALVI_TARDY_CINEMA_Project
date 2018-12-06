@@ -39,4 +39,16 @@ export class ActorsPage {
     console.log('ionViewDidLoad ActorsPage');
   }
 
+  public removeActor(actor: Actor) {
+    console.log(actor);
+    this.actorProvider.removeActor(actor).subscribe(      () => {
+
+      },
+      (error) => {
+        console.log(error.messages);
+      },
+      () => {
+        this.navCtrl.push(ActorsPage);
+      });
+  }
 }
