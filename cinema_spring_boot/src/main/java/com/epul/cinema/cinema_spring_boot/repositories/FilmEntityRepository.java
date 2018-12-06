@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface FilmEntityRepository extends JpaRepository<FilmEntity, Integer> {
+public interface FilmEntityRepository extends JpaRepository<FilmEntity, Short> {
     @Query("Select f" +
             " from FilmEntity f" +
             " where  f.filmId= :filmId"

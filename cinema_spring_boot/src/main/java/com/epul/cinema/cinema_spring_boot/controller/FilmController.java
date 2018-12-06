@@ -151,6 +151,22 @@ public class FilmController {
         return complexFilm;
     }
 
+    @GetMapping("/removeComplexFilm/{id}")
+    public void removeComplexFilm(@PathVariable(value = "id") short filmId){
+        String destinationPage = "";
+        FilmEntity f = this.filmEntityRepository.getOne(filmId);
+        List<FilmCategoryEntity> filmCategoryEntities = this.filmCategoryEntityRepository.getFilmCategoriesByFilmId((short) filmId);
+        List<FilmActorEntity> filmActorEntities = this.filmActorEntityRepository.getActorsByFilmId((short) filmId);
+        try {
+            this.filmActorEntityRepository.deleteAll(filmActorEntities);
+            this.filmCategoryEntityRepository.deleteAll(filmCategoryEntities);
+            this.filmEntityRepository.delete(f);
+        } catch (Exception e) {
+            System.out.println("ERROR:" + e.getMessage());
+            ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/getComplexFilmsByCategory/{id}")
     public List<ComplexFilm> getComplexFilmsByCategory(@PathVariable(value = "id") Byte categoryId){
         String destinationPage = "";
