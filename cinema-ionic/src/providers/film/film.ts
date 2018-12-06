@@ -42,4 +42,10 @@ export class FilmProvider {
     const url = environment.api + 'Film/updateComplexFilm';
     return this.http.post(url, film);
   }
+
+  public removeComplexFilm(filmId): Observable<string> {
+    const url = environment.api + 'Film/removeComplexFilm/' + filmId;
+    console.log(url);
+    return this.http.get(url).pipe(map(message => message as string));
+  }
 }

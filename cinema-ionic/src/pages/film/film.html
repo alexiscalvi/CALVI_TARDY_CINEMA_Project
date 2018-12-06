@@ -87,4 +87,9 @@
       </ion-card-content>
     </ion-card>
   </ion-list>
+  <button ion-button color="danger" full ion-only (click)="removeFilm(film?.filmEntity.filmId)" type="button" icon-end block>
+    Delete
+    <ion-icon name="trash"></ion-icon>
+  </button>
+
 </ion-content>
