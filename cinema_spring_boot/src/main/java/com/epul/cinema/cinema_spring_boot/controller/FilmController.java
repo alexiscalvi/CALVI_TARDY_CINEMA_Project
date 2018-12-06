@@ -151,20 +151,26 @@ public class FilmController {
         return complexFilm;
     }
 
-    @GetMapping("/removeComplexFilm/{id}")
-    public void removeComplexFilm(@PathVariable(value = "id") short filmId){
+    @GetMapping("/removeComplexFilm/{filmId}")
+    public String removeComplexFilm(@PathVariable(value = "filmId") short filmId){
         String destinationPage = "";
+        System.out.println("coucou" + filmId);
         FilmEntity f = this.filmEntityRepository.getOne(filmId);
         List<FilmCategoryEntity> filmCategoryEntities = this.filmCategoryEntityRepository.getFilmCategoriesByFilmId((short) filmId);
         List<FilmActorEntity> filmActorEntities = this.filmActorEntityRepository.getActorsByFilmId((short) filmId);
         try {
             this.filmActorEntityRepository.deleteAll(filmActorEntities);
+            this.filmActorEntityRepository.flush();
             this.filmCategoryEntityRepository.deleteAll(filmCategoryEntities);
+            this.filmCategoryEntityRepository.flush();
             this.filmEntityRepository.delete(f);
+            this.filmEntityRepository.flush();
         } catch (Exception e) {
             System.out.println("ERROR:" + e.getMessage());
             ResponseEntity.notFound().build();
         }
+        System.out.println("pas d'erreurs");
+        return "OK";
     }
 
     @GetMapping("/getComplexFilmsByCategory/{id}")
