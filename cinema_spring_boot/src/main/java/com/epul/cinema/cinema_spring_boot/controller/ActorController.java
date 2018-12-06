@@ -46,6 +46,20 @@ public class ActorController {
         }
     }
 
+    @PostMapping("/removeActor")
+    public void removeActor(  @Valid @RequestBody ActorEntity actorEntity){
+        String destinationPage = "";
+        System.out.println("coucou" + actorEntity.getActorId());
+        try {
+            actorEntityRepository.delete(actorEntity);
+            actorEntityRepository.flush();
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println(e.getMessage());
+            ResponseEntity.notFound().build();
+        }
+    }
+
 
 
 }
