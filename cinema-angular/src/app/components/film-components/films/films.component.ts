@@ -16,20 +16,14 @@ export class FilmsComponent implements OnInit {
   @Input()
   cat: Category;
 
-  private _films: Film[];
   private complexFilms: ComplexFilm[];
   private filmSearched: string;
   private categories: Category[];
-
-  private category: Category;
 
   constructor(private filmService: FilmService, private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.filmSearched = '';
-    this.filmService.getFilms().subscribe( value => {
-      this._films = value;
-    });
     this.filmService.getComplexFilms().subscribe( value => {
       this.complexFilms = value;
     });
