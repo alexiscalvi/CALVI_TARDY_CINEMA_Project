@@ -9,6 +9,7 @@ import {FilmService} from '../../../services/film.service';
 import {Actor} from '../../../models/actor';
 import {MatIconModule} from '@angular/material/icon';
 import {ActivatedRoute, Router} from '@angular/router';
+import {isEmpty} from 'rxjs/operators';
 
 @Component({
   selector: 'app-film-form',
@@ -64,9 +65,14 @@ export class FilmFormComponent implements OnInit {
   }
 
 
-  valider(): void {
-
-    console.log(this.film);
+  valider(form): boolean {
+    if (!form.valid
+      || !this.film.filmEntity.languageId
+      || !this.film.filmEntity.originalLanguageId
+      || this.film.actorEntityList.length === 0
+      || this.film.categoryEntityList.length === 0) {
+      return false;
+    }
     if (!this.id) {
       console.log('save');
       this.filmService.addComplexFilm(this.film).subscribe(
@@ -75,6 +81,7 @@ export class FilmFormComponent implements OnInit {
         },
         (error) => {
           console.log(error.messages);
+          return false;
         },
         () => {
           window.location.href = 'films';
@@ -89,12 +96,14 @@ export class FilmFormComponent implements OnInit {
         },
         (error) => {
           console.log(error.messages);
+          return false;
         },
         () => {
           window.location.href = 'film/' + this.film.filmEntity.filmId;
         }
       );
     }
+    return true;
 
   }
 

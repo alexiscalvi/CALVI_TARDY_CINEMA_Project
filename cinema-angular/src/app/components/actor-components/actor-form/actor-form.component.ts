@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Actor} from '../../../models/actor';
 import {ActorService} from '../../../services/actor.service';
+import {validate} from 'codelyzer/walkerFactory/walkerFn';
 
 @Component({
   selector: 'app-actor-form',
@@ -21,18 +22,23 @@ export class ActorFormComponent implements OnInit {
     this.actor = new Actor('', '', '');
   }
 
-  valider(): void {
-
-    this.actorService.addActor(this.actor). subscribe(
+  valider(form): boolean {
+    if (!form.valid) {
+      return false;
+    }
+    this.actorService.addActor(this.actor).subscribe(
       () => {
 
       },
-      (error) => { console.log(error.messages); },
+      (error) => {
+        console.log(error.messages);
+        return false;
+      },
       () => {
         window.location.href = 'actors';
       }
     );
-
+    return true;
   }
 
 }
