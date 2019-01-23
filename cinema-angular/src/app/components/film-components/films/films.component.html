@@ -1,12 +1,25 @@
-<h3>Liste des films</h3>
-<input type="text" class="form-control" [(ngModel)]="filmSearched" placeholder="Search...">
-<app-category-dropdown [categories]="categories" (categoryChange)="categoryChangeHandler($event)"></app-category-dropdown>
+<div class="container">
+  <div class="row">
+    <h3 style="margin-left: 0.75rem;">Liste des films</h3>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <input type="text" class="form-control" [(ngModel)]="filmSearched" placeholder="Search...">
+    </div>
+    <div class="col-2">
+      <app-category-dropdown [categories]="categories" (categoryChange)="categoryChangeHandler($event)"></app-category-dropdown>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-group">
+      <app-film-card  *ngFor="let film of complexFilms|filterFilm:filmSearched" [film]="film.filmEntity" ></app-film-card>
+    </div>
+  </div>
+  <div class="row" id="spinner">
+      <mat-spinner *ngIf="!resourcesLoaded" [diameter]="50"></mat-spinner>
+  </div>
+</div>
+
 <!--<div class="card-group">-->
-  <!--<app-film-card  *ngFor="let film of films|filterFilm:filmSearched" [film]="film" ></app-film-card>-->
+<!--<app-film-card  *ngFor="let film of films|filterFilm:filmSearched" [film]="film" ></app-film-card>-->
 <!--</div>-->
-<div class="card-group">
-  <app-film-card  *ngFor="let film of complexFilms|filterFilm:filmSearched" [film]="film.filmEntity" ></app-film-card>
-</div>
-<div align="center">
-  <mat-spinner *ngIf="!resourcesLoaded" [diameter]="50"></mat-spinner>
-</div>
