@@ -50,7 +50,7 @@
             <div class="form-group">
               <ul class="list-group" >
                 <li class="list-group-item" *ngFor=" let category of film?.categoryEntityList" (click)="rmCat(category)">
-                  {{category.name}} <mat-icon>delete_forever</mat-icon>
+                  {{category.name}}
                 </li>
               </ul>
             </div>
@@ -67,9 +67,10 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <ul class="list-group list-group-flush">
+              <ul class="list-group">
                 <li class="list-group-item" *ngIf="film?.filmEntity.languageId " (click)="rmLanguage()">
-                  {{ languages[film?.filmEntity.languageId - 1]?.name }} <mat-icon>delete_forever</mat-icon></li>
+                  {{ languages[film?.filmEntity.languageId - 1]?.name }}
+                </li>
               </ul>
             </div>
           </div>
@@ -85,9 +86,9 @@
         <div class="row">
           <div class="col">
             <div class="form-group">
-              <ul class="list-group list-group-flush">
+              <ul class="list-group">
                 <li class="list-group-item" *ngIf="film?.filmEntity.originalLanguageId " (click)="rmOriginalLanguage()">
-                  {{ languages[film?.filmEntity.originalLanguageId - 1]?.name }} <mat-icon>delete_forever</mat-icon>
+                  {{ languages[film?.filmEntity.originalLanguageId - 1]?.name }}
                 </li>
               </ul>
             </div>
@@ -97,18 +98,17 @@
           <div class="col">
             <div class="form-group">
               <label class="h3">Actors</label>
-              <ul class="list-group list-group-flush" >
+              <ul class="list-group" >
                 <li class="list-group-item" *ngFor=" let actor of film?.actorEntityList" (click)="rmAct(actor)">
-                  {{actor.firstName }} {{actor.lastName }} <mat-icon>delete_forever</mat-icon>
+                  {{actor.firstName }} {{actor.lastName }}
                 </li>
               </ul>
             </div>
           </div>
         </div>
-
       </div>
-      <div class="col-5">
 
+      <div class="col-5">
         <app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>
       </div >
 

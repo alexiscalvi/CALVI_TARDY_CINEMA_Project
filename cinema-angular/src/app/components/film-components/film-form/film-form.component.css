@@ -1,3 +1,12 @@
 textarea {
   height: 100%;
 }
+
+li.list-group-item {
+  text-align: center;
+  margin-top: 5px;
+}
+
+div.form-group {
+  text-align: center;
+}
