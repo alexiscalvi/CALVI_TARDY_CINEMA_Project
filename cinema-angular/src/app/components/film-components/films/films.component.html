@@ -7,3 +7,6 @@
 <div class="card-group">
   <app-film-card  *ngFor="let film of complexFilms|filterFilm:filmSearched" [film]="film.filmEntity" ></app-film-card>
 </div>
+<div align="center">
+  <mat-spinner *ngIf="!resourcesLoaded" [diameter]="50"></mat-spinner>
+</div>

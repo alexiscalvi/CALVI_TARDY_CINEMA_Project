@@ -19,14 +19,18 @@ export class FilmsComponent implements OnInit {
   private complexFilms: ComplexFilm[];
   private filmSearched: string;
   private categories: Category[];
+  private resourcesLoaded: boolean;
 
   constructor(private filmService: FilmService, private categoryService: CategoryService) { }
 
   ngOnInit() {
     this.filmSearched = '';
+    this.resourcesLoaded = false;
     this.filmService.getComplexFilms().subscribe( value => {
+      this.resourcesLoaded = true;
       this.complexFilms = value;
     });
+    // this.resourcesLoaded = true;
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });
