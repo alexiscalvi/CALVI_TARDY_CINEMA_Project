@@ -21,11 +21,14 @@ export class FilmsPage {
 
   films: ComplexFilm[];
   filmSearched: string;
+  resourcesLoaded: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public filmProvider: FilmProvider, public modalController: ModalController) {
     this.filmSearched = '';
     this.films = [];
+    this.resourcesLoaded = false;
     this.filmProvider.getComplexFilms().subscribe( value => {
+      this.resourcesLoaded = true;
       this.films = value;
     });
   }
