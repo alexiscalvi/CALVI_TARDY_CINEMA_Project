@@ -15,11 +15,6 @@ export class CategoryService {
 
   getCategories(): Observable<Category[]> {
     const url = environment.api + 'Category/getCategories';
-    // this.http.get(url)
-    //   .pipe(
-    //     map(res => res) // or any other operator
-    //   )
-    //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(categories => categories as Category[]));
   }
 }

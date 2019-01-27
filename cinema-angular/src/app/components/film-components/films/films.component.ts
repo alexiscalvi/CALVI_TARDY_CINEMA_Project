@@ -3,7 +3,6 @@ import {FilmService} from '../../../services/film.service';
 import {Film} from '../../../models/film';
 import {Category} from '../../../models/category';
 import {CategoryService} from '../../../services/category.service';
-import {forEach} from '@angular/router/src/utils/collection';
 import {ComplexFilm} from '../../../models/complex-film';
 
 @Component({
@@ -30,7 +29,6 @@ export class FilmsComponent implements OnInit {
       this.resourcesLoaded = true;
       this.complexFilms = value;
     });
-    // this.resourcesLoaded = true;
     this.categoryService.getCategories().subscribe(value => {
       this.categories = value;
     });

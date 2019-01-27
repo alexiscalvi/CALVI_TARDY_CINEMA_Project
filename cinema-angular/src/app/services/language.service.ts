@@ -15,11 +15,6 @@ export class LanguageService {
 
   getLanguages(): Observable<Language[]> {
     const url = environment.api + 'Language/getLanguages';
-    // this.http.get(url)
-    //   .pipe(
-    //     map(res => res) // or any other operator
-    //   )
-    //   .subscribe(res => console.log(res));
     return this.http.get(url).pipe(map(languages => languages as Language[]));
   }
 }

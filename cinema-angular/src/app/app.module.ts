@@ -21,12 +21,7 @@ import { FilmFormComponent } from './components/film-components/film-form/film-f
 import { LanguageDropdownComponent } from './components/dropdowns-components/language-dropdown/language-dropdown.component';
 import {
   MatButtonModule,
-  MatCheckboxModule,
-  MatToolbarModule,
-  MatInputModule,
   MatProgressSpinnerModule,
-  MatCardModule,
-  MatMenuModule,
   MatIconModule,
   MatGridListModule
 } from '@angular/material';

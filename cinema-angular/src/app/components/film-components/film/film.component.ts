@@ -22,8 +22,7 @@ export class FilmComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private  filmService: FilmService,
-              private actorServ: ActorService) {
+              private  filmService: FilmService) {
     this.id = 0;
   }
 
@@ -31,7 +30,6 @@ export class FilmComponent implements OnInit {
     this.route.paramMap.subscribe((id2) => this.id = +id2.get('id'));
     this.filmService.getComplexFilm(this.id).subscribe( (value) => {
       this.filmComplex = value;
-      console.log(this.filmComplex);
     });
   }
 }

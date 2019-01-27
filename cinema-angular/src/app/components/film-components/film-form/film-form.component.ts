@@ -7,9 +7,7 @@ import {ComplexFilm} from '../../../models/complex-film';
 import {Film} from '../../../models/film';
 import {FilmService} from '../../../services/film.service';
 import {Actor} from '../../../models/actor';
-import {MatIconModule} from '@angular/material/icon';
 import {ActivatedRoute, Router} from '@angular/router';
-import {isEmpty} from 'rxjs/operators';
 
 @Component({
   selector: 'app-film-form',
@@ -74,7 +72,6 @@ export class FilmFormComponent implements OnInit {
       return false;
     }
     if (!this.id) {
-      console.log('save');
       this.filmService.addComplexFilm(this.film).subscribe(
         () => {
 
@@ -88,8 +85,6 @@ export class FilmFormComponent implements OnInit {
         }
       );
     } else {
-      console.log('update');
-      console.log(this.film);
       this.filmService.updateComplexFilm(this.film).subscribe(
         () => {
 
@@ -110,7 +105,6 @@ export class FilmFormComponent implements OnInit {
   categoryChangeHandler(category: Category) {
     if (category !== null && !this.film.categoryEntityList.includes(category)) {
       this.film.categoryEntityList.push(category);
-      console.log(this.film.categoryEntityList);
     }
   }
 
@@ -127,7 +121,6 @@ export class FilmFormComponent implements OnInit {
   actorChangeHandler(actor: Actor) {
     if (actor !== null && !this.film.actorEntityList.includes(actor)) {
       this.film.actorEntityList.push(actor);
-      console.log(this.film.actorEntityList);
     }
   }
 
@@ -145,7 +138,6 @@ export class FilmFormComponent implements OnInit {
     console.log(language);
     if (language !== null) {
       this.film.filmEntity.languageId = language.languageId;
-      console.log(this.film.filmEntity.languageId);
     }
   }
 
@@ -156,7 +148,6 @@ export class FilmFormComponent implements OnInit {
   originalLanguageChangeHandler(language: Language) {
     if (language !== null) {
       this.film.filmEntity.originalLanguageId = language.languageId;
-      console.log(this.film.filmEntity.originalLanguageId);
     }
   }
 

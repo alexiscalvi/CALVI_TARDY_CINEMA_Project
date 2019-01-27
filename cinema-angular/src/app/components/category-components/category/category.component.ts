@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Actor} from '../../../models/actor';
 import {Category} from '../../../models/category';
 
 @Component({
