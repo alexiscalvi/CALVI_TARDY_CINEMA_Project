@@ -68,7 +68,7 @@ export class AddFilmPage {
 
 
   public addCategory() {
-    let modal = this.modalController.create(AddCategoryPage);
+    let modal = this.modalController.create(AddCategoryPage, {'categories' : this.film.categoryEntityList });
     modal.onDidDismiss(data => {
       if (data) {
         for (let category of data) {
@@ -99,6 +99,10 @@ export class AddFilmPage {
 
   public removeActor(actor : Actor) {
     this.film.actorEntityList = this.film.actorEntityList.filter(actorOfList => actorOfList !== actor);
+  }
+
+  public removeCategory(category : Category) {
+    this.film.categoryEntityList = this.film.categoryEntityList.filter(categoryOfList => categoryOfList !== category);
   }
 
   public valider(form) : boolean {

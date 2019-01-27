@@ -37,7 +37,7 @@
     <button ion-button (click)="addCategory()" type="button" block>Add a category</button>
 
     <ion-list *ngIf="film?.categoryEntityList">
-      <button ion-item *ngFor="let category of film?.categoryEntityList">
+      <button ion-item *ngFor="let category of film?.categoryEntityList" (click)="removeCategory(category)">
         {{category.name}}
       </button>
     </ion-list>
