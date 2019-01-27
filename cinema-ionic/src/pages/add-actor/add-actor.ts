@@ -29,7 +29,6 @@ export class AddActorPage {
     this.actorsAlreadyChecked = [];
     this.actorsAlreadyChecked = this.navParams.get('actors');
     this.actorProvider.getActors().subscribe( value => {
-      // console.log(value);
       this.items = value;
       this.actorsAlreadyChecked.forEach(actor => {
         this.items = this.items.filter(item => item.actorId!==actor.actorId);
@@ -39,7 +38,6 @@ export class AddActorPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddActorPage');
   }
 
 

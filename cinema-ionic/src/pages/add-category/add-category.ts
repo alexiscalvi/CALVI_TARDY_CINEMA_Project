@@ -27,7 +27,6 @@ export class AddCategoryPage {
     this.categoryAlreadyChecked = [];
     this.categoryAlreadyChecked = this.navParams.get('categories');
     this.categoryProvider.getCategories().subscribe( value => {
-      // console.log(value);
       this.items = value;
       this.categoryAlreadyChecked.forEach(category => {
         this.items = this.items.filter(item => item.categoryId!==category.categoryId);
@@ -36,7 +35,6 @@ export class AddCategoryPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddCategoryPage');
   }
 
   public closeModal(){

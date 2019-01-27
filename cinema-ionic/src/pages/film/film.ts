@@ -23,12 +23,9 @@ export class FilmPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public filmProvider: FilmProvider) {
     this.film = this.navParams.get('film');
-    console.log("après");
-    console.log(this.film);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FilmPage');
   }
 
   public updateFilm(){

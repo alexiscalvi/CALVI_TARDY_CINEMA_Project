@@ -33,10 +33,8 @@ export class AddFilmPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddFilmPage');
   }
   ionViewWillEnter() {
-    console.log('ionViewWillEnter AddFilmPage');
     this.languageProvider.getLanguages().subscribe( value => {
       this.languages = value;
     });
@@ -57,8 +55,6 @@ export class AddFilmPage {
         ''), <Array<Actor>> new Array(), <Array<Category>> new Array());
 
     let film2 = this.navParams.get('film');
-    console.log("coucou:");
-    console.log(film2);
     if (film2) {
       this.film = film2;
     }
@@ -74,7 +70,6 @@ export class AddFilmPage {
         for (let category of data) {
           if (!this.film.categoryEntityList.includes(category)) {
             this.film.categoryEntityList.push(category);
-            // console.log(this.film.categoryEntityList);
           }
         }
       }
@@ -89,7 +84,6 @@ export class AddFilmPage {
         for (let actor of data) {
           if (!this.film.actorEntityList.includes(actor)) {
             this.film.actorEntityList.push(actor);
-            // console.log(this.film.actorEntityList);
           }
         }
       }
@@ -127,8 +121,6 @@ export class AddFilmPage {
     });
 
     if (!this.film.filmEntity.filmId) {
-console.log(this.film);
-      console.log('save');
       this.filmProvider.addComplexFilm(this.film).subscribe(
         () => {
 
@@ -143,8 +135,6 @@ console.log(this.film);
         }
       );
     } else {
-    //   console.log('update');
-    //   console.log(this.film);
       this.filmProvider.updateComplexFilm(this.film).subscribe(
         () => {
 

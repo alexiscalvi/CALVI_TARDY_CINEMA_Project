@@ -24,19 +24,11 @@ export class ActorsPage {
     this.actorSearched = '';
     this.items = [];
     this.actorProvider.getActors().subscribe( value => {
-      // console.log(value);
       this.items = value;
     });
-    // for (let i = 1; i < 11; i++) {
-      // this.items.push({
-      //   actorId: 'Item ' + i,
-      //   note: 'This is item #' + i
-      // });
-    // }
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ActorsPage');
   }
 
   public removeActor(actor: Actor) {

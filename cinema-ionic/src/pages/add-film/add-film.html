@@ -59,6 +59,7 @@
         <ion-option *ngFor="let language of languages" value="{{language.languageId}}">{{language.name}}</ion-option>
       </ion-select>
     </ion-item>
+
     <ion-item>
       <ion-label class="h3">Language VO</ion-label>
       <ion-select [(ngModel)]="film?.filmEntity.originalLanguageId" name="VOLanguageId">
@@ -66,49 +67,8 @@
       </ion-select>
     </ion-item>
 
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ul class="list-group" >-->
-        <!--<li class="list-group-item" *ngFor=" let category of film?.categoryEntityList" (click)="rmCat(category)">-->
-          <!--{{category.name}} <mat-icon>delete_forever</mat-icon>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ion-label class="h3">Language</ion-label>-->
-      <!--<app-language-dropdown [languages]="languages" id="language"  name="language"  (languageChange)="languageChangeHandler($event)"></app-language-dropdown>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ul class="list-group list-group-flush">-->
-        <!--<li class="list-group-item" *ngIf="film?.filmEntity.languageId " (click)="rmLanguage()">-->
-          <!--{{ languages[film?.filmEntity.languageId - 1]?.name }} <mat-icon>delete_forever</mat-icon></li>-->
-      <!--</ul>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ion-label class="h3">Language VO</ion-label>-->
-      <!--<app-language-dropdown [languages]="languages" id="originalLanguage" name="originalLanguage" (languageChange)="originalLanguageChangeHandler($event)"> ></app-language-dropdown>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ul class="list-group list-group-flush">-->
-        <!--<li class="list-group-item" *ngIf="film?.filmEntity.originalLanguageId " (click)="rmOriginalLanguage()">-->
-          <!--{{ languages[film?.filmEntity.originalLanguageId - 1]?.name }} <mat-icon>delete_forever</mat-icon>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<ion-label class="h3">Actors</ion-label>-->
-      <!--<ul class="list-group list-group-flush" >-->
-        <!--<li class="list-group-item" *ngFor=" let actor of film?.actorEntityList" (click)="rmAct(actor)">-->
-          <!--{{actor.firstName }} {{actor.lastName }} <mat-icon>delete_forever</mat-icon>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</ion-item>-->
-    <!--<ion-item>-->
-      <!--<app-actors (actorChange)="actorChangeHandler($event)" ></app-actors>-->
-    <!--</ion-item>-->
-
-      <button ion-button *ngIf="film?.filmEntity.filmId" type="submit" block>Update</button>
-      <button ion-button *ngIf="!film?.filmEntity.filmId" type="submit" block>Submit</button>
+    <button ion-button *ngIf="film?.filmEntity.filmId" type="submit" block>Update</button>
+    <button ion-button *ngIf="!film?.filmEntity.filmId" type="submit" block>Submit</button>
 
   </form>
 </ion-content>

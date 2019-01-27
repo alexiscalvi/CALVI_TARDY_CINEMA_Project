@@ -26,7 +26,6 @@ export class CreateActorPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateActorPage');
   }
 
   public valider(form) : boolean {
