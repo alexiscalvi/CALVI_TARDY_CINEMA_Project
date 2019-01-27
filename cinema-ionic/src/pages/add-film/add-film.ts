@@ -83,7 +83,7 @@ export class AddFilmPage {
   }
 
   public addActor() {
-    let modal = this.modalController.create(AddActorPage);
+    let modal = this.modalController.create(AddActorPage,{'actors' : this.film.actorEntityList});
     modal.onDidDismiss(data => {
       if (data) {
         for (let actor of data) {
@@ -95,6 +95,10 @@ export class AddFilmPage {
       }
     });
     modal.present();
+  }
+
+  public removeActor(actor : Actor) {
+    this.film.actorEntityList = this.film.actorEntityList.filter(actorOfList => actorOfList !== actor);
   }
 
   public valider(form) : boolean {

@@ -47,7 +47,7 @@
     <button ion-button (click)="addActor()" type="button" block>Add an actor</button>
 
     <ion-list *ngIf="film?.actorEntityList">
-      <button ion-item *ngFor="let actor of film?.actorEntityList">
+      <button ion-item *ngFor="let actor of film?.actorEntityList" (click)="removeActor(actor)">
         {{actor.firstName}}
         {{actor.lastName}}
       </button>

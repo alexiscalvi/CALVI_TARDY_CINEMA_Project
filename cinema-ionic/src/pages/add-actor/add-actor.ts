@@ -21,13 +21,19 @@ export class AddActorPage {
 
   items: Actor[];
   actors: Actor[];
+  actorsAlreadyChecked: Actor[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewController: ViewController, public actorProvider: ActorProvider) {
     this.items = [];
     this.actors = <Array<Actor>> new Array();
+    this.actorsAlreadyChecked = [];
+    this.actorsAlreadyChecked = this.navParams.get('actors');
     this.actorProvider.getActors().subscribe( value => {
       // console.log(value);
       this.items = value;
+      this.actorsAlreadyChecked.forEach(actor => {
+        this.items = this.items.filter(item => item.actorId!==actor.actorId);
+      });
     });
 
   }
@@ -46,6 +52,10 @@ export class AddActorPage {
   }
 
   public addThisActor(actor: Actor) {
-    this.actors.push(actor);
+    if (this.actors.includes(actor)) {
+      this.actors = this.actors.filter(actorOfActors => actorOfActors!== actor);
+    } else {
+      this.actors.push(actor);
+    }
   }
 }
