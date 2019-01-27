@@ -18,9 +18,7 @@ export class FilmProvider {
 
   constructor(public http: HttpClient) {
   }
-  /**
-   * getTrips
-   */
+
   public getComplexFilms(): Observable<ComplexFilm[]> {
     const url = environment.api + 'Film/getComplexFilms';
     return this.http.get(url).pipe(map(films => films as ComplexFilm[]));

@@ -7,7 +7,6 @@ import { HomePage } from '../pages/home/home';
 import {FilmsPage} from "../pages/films/films";
 import {ActorsPage} from "../pages/actors/actors";
 import {AddFilmPage} from "../pages/add-film/add-film";
-import {AddActorPage} from "../pages/add-actor/add-actor";
 import {CreateActorPage} from "../pages/create-actor/create-actor";
 
 @Component({

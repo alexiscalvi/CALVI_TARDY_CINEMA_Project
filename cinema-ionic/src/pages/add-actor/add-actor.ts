@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
-import {Category} from "../../models/category";
 import {Actor} from "../../models/actor";
-import {CategoryProvider} from "../../providers/category/category";
 import {ActorProvider} from "../../providers/actor/actor";
 
 /**

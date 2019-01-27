@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {IonicPage, ModalController, NavController, NavParams, ViewController} from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {Category} from "../../models/category";
 import {CategoryProvider} from "../../providers/category/category";
 

@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ComplexFilm} from "../../models/complex-film";
 import {Actor} from "../../models/actor";
 
 /**
