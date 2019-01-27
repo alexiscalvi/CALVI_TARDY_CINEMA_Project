@@ -2,7 +2,6 @@ package com.epul.cinema.cinema_spring_boot.controller;
 
 import com.epul.cinema.cinema_spring_boot.Language;
 import com.epul.cinema.cinema_spring_boot.domains.*;
-import com.epul.cinema.cinema_spring_boot.domains.LanguageEntity;
 import com.epul.cinema.cinema_spring_boot.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -81,13 +80,10 @@ public class FilmController {
 
                 Language language = new Language(languageEntity.getLanguageId(),languageEntity.getName(),languageEntity.getLastUpdate());
                 complexFilm.setLanguageNormal(language);
+                LanguageEntity languageVOEntity = languageEntityRepository.getOne(f.getOriginalLanguageId());
 
-//                if( f.getOriginalLanguageId() != null) {
-                    LanguageEntity languageVOEntity = languageEntityRepository.getOne(f.getOriginalLanguageId());
-
-                    Language languageVO = new Language(languageVOEntity.getLanguageId(), languageVOEntity.getName(), languageVOEntity.getLastUpdate());
-                    complexFilm.setLanguageVO(languageVO);
-//                }
+                Language languageVO = new Language(languageVOEntity.getLanguageId(), languageVOEntity.getName(), languageVOEntity.getLastUpdate());
+                complexFilm.setLanguageVO(languageVO);
 
                 complexFilmList.add(complexFilm);
             }
@@ -101,7 +97,6 @@ public class FilmController {
 
     @GetMapping("/getFilm/{id}")
     public FilmEntity getFilmById(@PathVariable(value = "id") int filmId){
-        System.out.println("ici" + filmId);
         String destinationPage = "";
         FilmEntity film = null;
         try {
@@ -154,7 +149,6 @@ public class FilmController {
     @GetMapping("/removeComplexFilm/{filmId}")
     public String removeComplexFilm(@PathVariable(value = "filmId") short filmId){
         String destinationPage = "";
-        System.out.println("coucou" + filmId);
         FilmEntity f = this.filmEntityRepository.getOne(filmId);
         List<FilmCategoryEntity> filmCategoryEntities = this.filmCategoryEntityRepository.getFilmCategoriesByFilmId((short) filmId);
         List<FilmActorEntity> filmActorEntities = this.filmActorEntityRepository.getActorsByFilmId((short) filmId);
@@ -169,7 +163,6 @@ public class FilmController {
             System.out.println("ERROR:" + e.getMessage());
             ResponseEntity.notFound().build();
         }
-        System.out.println("pas d'erreurs");
         return "OK";
     }
 
@@ -231,19 +224,12 @@ public class FilmController {
             FilmActorEntity filmActorEntity = new FilmActorEntity();
 
             filmEntity = complexFilm.getFilmEntity();
-//            System.out.println("filmId:" + filmEntity.getFilmId());
-//            System.out.println("title:" + filmEntity.getTitle());
-//            System.out.println("languageId:" + filmEntity.getLanguageId());
-//            System.out.println("languageId:" + filmEntity.getOriginalLanguageId());
-//            System.out.println("lentg:" + filmEntity.getLength());
             filmEntity.setRating("G");
             filmEntity.setRentalDuration((byte) 0);
             filmEntity.setRentalRate(BigDecimal.valueOf(0));
             filmEntity.setReplacementCost(BigDecimal.valueOf(0));
-//            System.out.println("rating:" + filmEntity.getRating());
             filmEntityRepository.save(filmEntity);
             filmEntityRepository.flush();
-//            System.out.println("filmId:" + filmEntity.getFilmId());
 
             actorEntityList = complexFilm.getActorEntityList();
             categoryEntityList = complexFilm.getCategoryEntityList();
@@ -251,8 +237,6 @@ public class FilmController {
             filmActorEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (ActorEntity actor :
                     actorEntityList) {
-//                System.out.println("actorNom" + actor.getFirstName());
-//                System.out.println("actorNom" + actor.getActorId());
                 filmActorEntity.setActorId(actor.getActorId());
                 filmActorEntityRepository.save(filmActorEntity);
                 filmActorEntityRepository.flush();
@@ -261,11 +245,7 @@ public class FilmController {
             filmCategoryEntity.setFilmId(complexFilm.getFilmEntity().getFilmId());
             for (CategoryEntity category :
                     categoryEntityList) {
-//                System.out.println("categoryName" + filmCategoryEntity.getFilmId());
-//                System.out.println("categoryName" + category.getName());
-//                System.out.println("categoryName" + category.getCategoryId());
                 filmCategoryEntity.setCategoryId(category.getCategoryId());
-//                System.out.println("categoryName" + filmCategoryEntity.getCategoryId());
                 filmCategoryEntityRepository.save(filmCategoryEntity);
                 filmCategoryEntityRepository.flush();
             }

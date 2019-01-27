@@ -1,8 +1,6 @@
 package com.epul.cinema.cinema_spring_boot.controller;
 
-import com.epul.cinema.cinema_spring_boot.domains.ActorEntity;
 import com.epul.cinema.cinema_spring_boot.domains.LanguageEntity;
-import com.epul.cinema.cinema_spring_boot.repositories.ActorEntityRepository;
 import com.epul.cinema.cinema_spring_boot.repositories.LanguageEntityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

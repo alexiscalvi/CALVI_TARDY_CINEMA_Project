@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.util.List;
 
 @RestController
@@ -49,7 +48,6 @@ public class ActorController {
     @PostMapping("/removeActor")
     public void removeActor(  @Valid @RequestBody ActorEntity actorEntity){
         String destinationPage = "";
-        System.out.println("coucou" + actorEntity.getActorId());
         try {
             actorEntityRepository.delete(actorEntity);
             actorEntityRepository.flush();
