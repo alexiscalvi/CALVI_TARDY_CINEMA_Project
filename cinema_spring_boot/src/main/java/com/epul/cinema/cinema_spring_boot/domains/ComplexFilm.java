@@ -1,7 +1,5 @@
 package com.epul.cinema.cinema_spring_boot.domains;
 
-import com.epul.cinema.cinema_spring_boot.Language;
-
 import java.util.ArrayList;
 import java.util.List;
 

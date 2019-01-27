@@ -1,6 +1,6 @@
 package com.epul.cinema.cinema_spring_boot.controller;
 
-import com.epul.cinema.cinema_spring_boot.Language;
+import com.epul.cinema.cinema_spring_boot.domains.Language;
 import com.epul.cinema.cinema_spring_boot.domains.*;
 import com.epul.cinema.cinema_spring_boot.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;

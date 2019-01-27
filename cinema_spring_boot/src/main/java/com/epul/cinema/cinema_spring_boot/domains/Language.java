@@ -1,4 +1,4 @@
-package com.epul.cinema.cinema_spring_boot;
+package com.epul.cinema.cinema_spring_boot.domains;
 
 import java.sql.Timestamp;
 
