@@ -16,7 +16,6 @@ import {Category} from "../../models/category";
 export class CategoryProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello CategoryProvider Provider');
   }
 
   public getCategories(): Observable<Category[]> {

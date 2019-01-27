@@ -16,7 +16,6 @@ import {Language} from "../../models/language";
 export class LanguageProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello LanguageProvider Provider');
   }
 
   public getLanguages(): Observable<Language[]> {

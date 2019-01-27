@@ -32,7 +32,6 @@ export class ActorsPage {
   }
 
   public removeActor(actor: Actor) {
-    console.log(actor);
     this.actorProvider.removeActor(actor).subscribe(      () => {
 
       },
