@@ -57,7 +57,6 @@ export class FilmFormComponent implements OnInit {
     if (this.id) {
       this.filmService.getComplexFilm(this.id).subscribe((value) => {
         this.film = value;
-        console.log(this.film);
       });
     }
   }
@@ -135,7 +134,6 @@ export class FilmFormComponent implements OnInit {
   }
 
   languageChangeHandler(language: Language) {
-    console.log(language);
     if (language !== null) {
       this.film.filmEntity.languageId = language.languageId;
     }
