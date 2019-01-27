@@ -29,17 +29,23 @@ export class CreateActorPage {
     console.log('ionViewDidLoad CreateActorPage');
   }
 
-  public valider() {
+  public valider(form) : boolean {
+    if (!form.valid) {
+      return false;
+    }
     this.actorProvider.addActor(this.actor).subscribe(
       () => {
-
+        return true;
       },
       (error) => {
         console.log(error.messages);
+        return false;
       },
       () => {
         this.navCtrl.push(ActorsPage);
+        return true;
       });
+    return true;
   }
 
 }

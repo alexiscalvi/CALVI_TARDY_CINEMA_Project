@@ -14,22 +14,22 @@
 </ion-header>
 
 <ion-content padding>
-  <form (ngSubmit)="valider()">
+  <form #form="ngForm" (ngSubmit)="valider(form)">
     <ion-item>
       <ion-label class="h3" for="title">Title</ion-label>
-      <ion-input type="text" class="form-control" [(ngModel)]="film?.filmEntity.title" id="title" name="title" ></ion-input>
+      <ion-input type="text" class="form-control" [(ngModel)]="film?.filmEntity.title" id="title" name="title" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="h3"for="description">Description</ion-label>
-      <ion-textarea type="text" class="form-control" [(ngModel)]="film?.filmEntity.description" id="description" name="description" ></ion-textarea>
+      <ion-textarea type="text" class="form-control" [(ngModel)]="film?.filmEntity.description" id="description" name="description" required></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label class="h3"for="releaseYear">Release year</ion-label>
-      <ion-input type="text" class="form-control" [(ngModel)]="film?.filmEntity.releaseYear" id="releaseYear" name="releaseYear" ></ion-input>
+      <ion-input type="number" class="form-control" [(ngModel)]="film?.filmEntity.releaseYear" id="releaseYear" name="releaseYear" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="h3"for="length">Length</ion-label>
-      <ion-input type="text" class="form-control" [(ngModel)]="film?.filmEntity.length" id="length" name="length" ></ion-input>
+      <ion-input type="number" class="form-control" [(ngModel)]="film?.filmEntity.length" id="length" name="length" required></ion-input>
     </ion-item>
 
 

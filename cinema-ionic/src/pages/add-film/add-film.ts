@@ -97,9 +97,16 @@ export class AddFilmPage {
     modal.present();
   }
 
-  public valider() {
+  public valider(form) : boolean {
 
-    //[TODO: if id update movie not create
+    if (!form.valid
+      || !this.film.filmEntity.languageId
+      || !this.film.filmEntity.originalLanguageId
+      || this.film.actorEntityList.length === 0
+      || this.film.categoryEntityList.length === 0) {
+      return false;
+    }
+
     this.languages.map(value => {
       if (value.languageId == this.film.filmEntity.languageId) {
         this.film.languageNormal = value;

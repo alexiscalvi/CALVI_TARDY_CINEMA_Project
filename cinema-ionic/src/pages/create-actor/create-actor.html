@@ -16,14 +16,14 @@
 
 
 <ion-content padding>
-  <form (ngSubmit)="valider()">
+  <form #form="ngForm" (ngSubmit)="valider(form)">
     <ion-item>
       <ion-label for="firstName">First Name</ion-label>
-      <ion-input type="text" class="form-control" [(ngModel)]="actor.firstName" id="firstName" name="firstName" placeholder="..."></ion-input>
+      <ion-input type="text" class="form-control" [(ngModel)]="actor.firstName" id="firstName" name="firstName" placeholder="..." required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label for="lastName">Last Name</ion-label>
-      <ion-input type="text" class="form-control" [(ngModel)]="actor.lastName" id="lastName" name="lastName" placeholder="..."></ion-input>
+      <ion-input type="text" class="form-control" [(ngModel)]="actor.lastName" id="lastName" name="lastName" placeholder="..." required></ion-input>
     </ion-item>
 
     <button ion-button type="submit" block>Submit</button>
